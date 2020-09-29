@@ -96,7 +96,7 @@
             <!--Copyright-->
             <p class="text-center text-md-left">© 2020 Copyright
                 <a href="index.php">
-                <strong>Webshop.com</strong>
+                <strong>Webshop.com </strong>
                 </a>
             </p>
 
