@@ -1,6 +1,5 @@
 <?php
 
-    echo "hi";
 ?>
 <html>
 <head>
