@@ -10,6 +10,9 @@
     </head>
     <body>
         <div class="header">
+            <div class="logo" >
+                <img src="./logo.png" class="rounded" alt="Cinque Terre">
+            </div>
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
                 <ul class="navbar-nav">
