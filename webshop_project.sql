@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Sep 29, 2020 at 11:21 AM
+-- Generation Time: Oct 01, 2020 at 09:10 AM
 -- Server version: 5.7.21
 -- PHP Version: 5.6.35
 
@@ -52,11 +52,22 @@ CREATE TABLE IF NOT EXISTS `products` (
   `name` varchar(60) NOT NULL,
   `description` text NOT NULL,
   `specifications` json NOT NULL,
-  `price` float NOT NULL,
+  `price` int(11) NOT NULL,
   `stock` int(11) NOT NULL,
+  `category` varchar(60) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `product_code`, `name`, `description`, `specifications`, `price`, `stock`, `category`) VALUES
+(1, '1234', 'GPU 8800ti', 'A very fast GPU. Dit wonderbaarlijk snelle apparaat zorgt ervoor dat je al je games op maximale settings kan spelen! Ook zeer goed voor editing en rendering!', '{\"Vram\": \"12GB\", \"Frequency\": \"2000Mhz\", \"Boost Clock\": \"2500Mhz\"}', 1000, 11, 'graphics_card'),
+(2, '4321', 'GPU 8900ti', 'A fast GPU. Dit wonderbaarlijk snelle apparaat zorgt ervoor dat je al je games op maximale settings kan spelen! Ook zeer goed voor editing en rendering!', '{\"Vram\": \"12GB\", \"Frequency\": \"2000Mhz\", \"Boost Clock\": \"2500Mhz\"}', 2000, 19, 'graphics_card'),
+(3, '8765', 'GPU 8700ti', 'A slower GPU. Dit wonderbaarlijk snelle apparaat zorgt ervoor dat je al je games op maximale settings kan spelen! Ook zeer goed voor editing en rendering!', '{\"Vram\": \"12GB\", \"Frequency\": \"2000Mhz\", \"Boost Clock\": \"2500Mhz\"}', 600, 14, 'graphics_card'),
+(4, '5678', 'GPU 8600ti', 'An even slower GPU. Dit wonderbaarlijk snelle apparaat zorgt ervoor dat je al je games op maximale settings kan spelen! Ook zeer goed voor editing en rendering!', '{\"Vram\": \"12GB\", \"Frequency\": \"2000Mhz\", \"Boost Clock\": \"2500Mhz\"}', 300, 37, 'graphics_card');
 
 -- --------------------------------------------------------
 
