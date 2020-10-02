@@ -2,7 +2,7 @@
 
     require_once("database.php");
 
-    $stmt = $con->prepare("SELECT * FROM products");
+    $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id");
     $stmt->execute();
 
     $products = $stmt->fetchAll(5);
@@ -16,6 +16,7 @@
     </head>
     <body>
         <?php include("header.php") ?>
+            <input class=" btn btn-warning" type="button" onclick="location.href='adminPage.php';" value="Admin Page">
             <div class="PageContentBg">
                 <?php 
                     foreach($products as $product) {
