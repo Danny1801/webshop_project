@@ -27,7 +27,8 @@
                 <table class="table table-striped">
                     <thead>
                         <th>Id</th>
-                        <th>Product code</th>
+                        <th>Image</th>
+                        <th>Code</th>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Specifications</th>
@@ -42,6 +43,7 @@
                             foreach($products as $product) {
                                 echo "<tr>";
                                 echo "<td>" . $product->id . "</td>";
+                                echo "<td><img class='tableProductImage' src='products/$product->category/$product->product_code.jpg'></td>";
                                 echo "<td>" . $product->product_code . "</td>";
                                 echo "<td>" . $product->name . "</td>";
                                 echo "<td>" . $product->description . "</td>";
