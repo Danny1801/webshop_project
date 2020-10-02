@@ -33,6 +33,7 @@
         <?php include("header.php") ?>
             <div class="PageContentBg">
                 <form method="POST">
+                    <div style="color:salmon;">Let op! Product code is de naam van de foto</div>
                     Product code <input type="text" name="product_code"><br>
                     Name <input type="text" name="name"><br>
                     Description <input type="text" name="description"><br>
