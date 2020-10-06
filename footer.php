@@ -20,8 +20,8 @@
 
             <!-- Grid column -->
             <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h6 class="text-uppercase mb-4 font-weight-bold">Company name</h6>
-            <p>The employees at [NAAM] have 10 minutes of experience in selling pc hardware online. <br> We are selling a wide variety of products.</p>
+            <h6 class="text-uppercase mb-4 font-weight-bold">Danio Components</h6>
+            <p>The employees at Danio Components have 10 minutes of experience in selling pc hardware online. <br> We are selling a wide variety of products.</p>
             </div>
             <!-- Grid column -->
 
@@ -31,16 +31,16 @@
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold">Popular</h6>
             <p>
-                <a href="categoryPage.php?category='graphics_card'">Graphics Cards</a>
+                <a href="categoryPage.php?category=graphics_card">Graphics Cards</a>
             </p>
             <p>
-                <a href="categoryPage.php?category='processor'">Processors</a>
+                <a href="categoryPage.php?category=processor">Processors</a>
             </p>
             <p>
-                <a href="categoryPage.php?category='ram'">RAM</a>
+                <a href="categoryPage.php?category=ram">RAM</a>
             </p>
             <p>
-                <a href="categoryPage.php?category='motherboard'">Motherboards</a>
+                <a href="categoryPage.php?category=motherboard">Motherboards</a>
             </p>
             </div>
             <!-- Grid column -->
@@ -51,16 +51,16 @@
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold">Other</h6>
             <p>
-                <a href="categoryPage.php?category='storage'">Storage SSD/HDD</a>
+                <a href="categoryPage.php?category=storage">Storage SSD/HDD</a>
             </p>
             <p>
-                <a href="categoryPage.php?category='power_supply'">Power Supplies</a>
+                <a href="categoryPage.php?category=power_supply">Power Supplies</a>
             </p>
             <p>
-                <a href="categoryPage.php?category='cpu_cooler'">CPU Coolers</a>
+                <a href="categoryPage.php?category=cpu_cooler">CPU Coolers</a>
             </p>
             <p>
-                <a href="categoryPage.php?category='pc_cases'">PC Cases</a>
+                <a href="categoryPage.php?category=pc_cases">PC Cases</a>
             </p>
             </div>
 
@@ -73,7 +73,7 @@
             <p>
                 <i class="fas fa-home mr-3"></i> Van Linschotenlaan 501, 1212 GG</p>
             <p>
-                <i class="fas fa-envelope mr-3"></i> info@[NAAM].com</p>
+                <i class="fas fa-envelope mr-3"></i> info@daniocomponents.com</p>
             <p>
                 <i class="fas fa-phone mr-3"></i> + 06 516 697 34</p>
             <p>
@@ -95,7 +95,7 @@
             <!--Copyright-->
             <p class="text-center text-md-left">© 2020 Copyright
                 <a href="index.php">
-                <strong>Webshop.com</strong>
+                <strong>DanioComponents.com</strong>
                 </a>
             </p>
 
