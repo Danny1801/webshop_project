@@ -16,6 +16,7 @@
 ?>
 <html>
     <head>
+        <title>Admin - Danio Components</title>
         <link rel="stylesheet" href="styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -43,7 +44,7 @@
                             foreach($products as $product) {
                                 echo "<tr>";
                                 echo "<td>" . $product->id . "</td>";
-                                echo "<td><img class='tableProductImage' src='products/$product->category/$product->product_code.jpg'></td>";
+                                echo "<td><img class='tableProductImage' src='products/$product->category/$product->product_code.jpg' onerror=\"this.onerror=null; this.src='images/not_found.jpg'\"></td>";
                                 echo "<td>" . $product->product_code . "</td>";
                                 echo "<td>" . $product->name . "</td>";
                                 echo "<td>" . $product->description . "</td>";
