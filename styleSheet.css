@@ -26,9 +26,9 @@ a, a:link, a:visited {
 .logo{
     width: 150px;
     height: 75px;
-    background-color: black;
+    /*background-color: black;
     border-style: solid;
-    border-color: black;
+    border-color: black;*/
     margin-left: 0px;
     margin-top: 10px;
 }

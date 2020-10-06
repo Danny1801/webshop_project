@@ -12,7 +12,7 @@
         <div class="header">
             <div class="container" >
                 <div class="logo">
-                    <!--<img src="./logo.png" class="rounded" alt="Cinque Terre" id="logo">-->
+                    <img src="images/logo.png" class="rounded" alt="Cinque Terre" id="logo">
                 </div>
                 <div id="login">
                     <a href="login.php">Login</a>
