@@ -24,8 +24,8 @@
     <body>
         <?php include("header.php") ?>
             <div class="PageContentBg">
-            <input class=" btn btn-success" type="button" onclick="location.href='createProduct.php';" value="Product Toevoegen">
-                <table class="table table-striped">
+            <input class=" btn btn-success" type="button" onclick="location.href='createProduct.php';" value="Product Toevoegen"><br><br>
+                <table class="table table-striped table-responsive">
                     <thead>
                         <th>Id</th>
                         <th>Image</th>
@@ -53,7 +53,7 @@
                                 echo "<td>" . $product->stock . "</td>";
                                 echo "<td>" . $product->category . "</td>";
                                 echo "<td><a href='updateProduct.php?product=" . $product->product_code . "'>Wijzig</a></td>";
-                                echo "<td><a href='deleteProduct.php?product=" . $product->product_code . "'>Verwijder</a></td>";
+                                echo "<td><a style='color:red;' href='deleteProduct.php?product=" . $product->product_code . "'>Verwijder</a></td>";
                                 echo "</tr>";
                             }
                         ?>

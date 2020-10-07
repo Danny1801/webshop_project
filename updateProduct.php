@@ -41,24 +41,51 @@
         <?php include("header.php") ?>
         <div class="PageContentBg">
             <form method="POST">
-                Product code <input type="text" name="product_code" value="<?php echo $product->product_code ?>"><br>
-                Name <input type="text" name="name" value="<?php echo $product->name ?>"><br>
-                Description <input type="text" name="description" value="<?php echo $product->description ?>"><br>
-                Specifications <input type="text" name="specifications"><?php echo $product->specifications ?><br>
-                Price <input type="number" name="price" value="<?php echo $product->price ?>"><br>
-                Stock <input type="number" name="stock" value="<?php echo $product->stock ?>"><br>
-                Category <select name="category">
-                    <?php
-                        foreach($categories as $category) {
-                            if($product->category_id == $category->id) {
-                                echo "<option selected value=" . $category->id . ">" . $category->name . "</option>";
-                            } else {
-                                echo "<option value=" . $category->id . ">" . $category->name . "</option>";
-                            }
-                        }
-                    ?>
-                </select><br>
-                <input class=" btn btn-success" type="submit" onclick="location.href='createProduct.php';" value="Product Opslaan">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td>Product code</td>
+                            <td><input type="text" name="product_code" value="<?php echo $product->product_code ?>"></td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td><input type="text" name="name" value="<?php echo $product->name ?>"></td>
+                        </tr>
+                        <tr>
+                            <td>Description</td>
+                            <td><textarea cols="80" rows="5" name="description"><?php echo $product->description ?></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Specifications</td>
+                            <td><textarea cols="80" rows="2" name="specifications"><?php echo $product->specifications ?></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Price</td>
+                            <td><input type="number" name="price" value="<?php echo $product->price ?>"></td>
+                        </tr>
+                        <tr>
+                            <td>Stock</td>
+                            <td><input type="number" name="stock" value="<?php echo $product->stock ?>"></td>
+                        </tr>
+                        <tr>
+                            <td>Category</td>
+                            <td>
+                                <select name="category">
+                                    <?php
+                                        foreach($categories as $category) {
+                                            if($product->category_id == $category->id) {
+                                                echo "<option selected value=" . $category->id . ">" . $category->name . "</option>";
+                                            } else {
+                                                echo "<option value=" . $category->id . ">" . $category->name . "</option>";
+                                            }
+                                        }
+                                    ?>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input class=" btn btn-success" type="submit" onclick="location.href='createProduct.php';" value="Wijzigingen Opslaan">
             </form>
         </div>
         <?php include("footer.php") ?>

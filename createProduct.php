@@ -7,19 +7,23 @@
 
 	$categories = $stmt->fetchAll(5);
 
-	if($_POST) {
-		$stmt = $con->prepare("INSERT INTO products (product_code, `name`, `description`, specifications, price, stock, category_id) VALUES(?, ?, ? ,? ,?, ?, ?)");
-        $stmt->bindValue(1, $_POST["product_code"]);
-        $stmt->bindValue(2, $_POST["name"]);
-		$stmt->bindValue(3, $_POST["description"]);
-		$stmt->bindValue(4, $_POST["specifications"]);
-        $stmt->bindValue(5, $_POST["price"]);
-        $stmt->bindValue(6, $_POST["stock"]);
-        $stmt->bindValue(7, $_POST["category"]);
+    if($_POST) {
+        if($_POST["category"] != "-" && trim($_POST["product_code"]) && trim($_POST["name"]) && trim($_POST["description"]) && trim($_POST["specifications"]) && trim($_POST["price"]) && trim($_POST["stock"])) {
+            $stmt = $con->prepare("INSERT INTO products (product_code, `name`, `description`, specifications, price, stock, category_id) VALUES(?, ?, ? ,? ,?, ?, ?)");
+            $stmt->bindValue(1, $_POST["product_code"]);
+            $stmt->bindValue(2, $_POST["name"]);
+            $stmt->bindValue(3, $_POST["description"]);
+            $stmt->bindValue(4, $_POST["specifications"]);
+            $stmt->bindValue(5, $_POST["price"]);
+            $stmt->bindValue(6, $_POST["stock"]);
+            $stmt->bindValue(7, $_POST["category"]);
 
-		$stmt->execute();
+            $stmt->execute();
 
-		header("location:index.php");
+            header("location:index.php");
+        } else {
+            echo "<script type='text/javascript'>alert('Alle velden moeten ingevuld zijn!');</script>";
+        }
 	}
 
 ?>
@@ -34,21 +38,49 @@
         <?php include("header.php") ?>
             <div class="PageContentBg">
                 <form method="POST">
-                    <div style="color:salmon;">Let op! Product code is de naam van de foto</div>
-                    Product code <input type="text" name="product_code"><br>
-                    Name <input type="text" name="name"><br>
-                    Description <input type="text" name="description"><br>
-                    Specifications <input type="text" name="specifications"><br>
-                    Price <input type="number" name="price"><br>
-                    Stock <input type="number" name="stock"><br>
-                    Category <select name="category">
-                        <?php
-                            foreach($categories as $category) {
-                                echo "<option value=" . $category->id . ">" . $category->name . "</option>";
-                            }
-                        ?>
-                    </select><br>
-                    <input class=" btn btn-success" type="submit" onclick="location.href='createProduct.php';" value="Product Toevoegen">
+                    <div style="color:red;">Let op! Product code is de naam van de foto</div><br>
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <td>Product code</td>
+                                <td><input type="text" name="product_code"></td>
+                            </tr>
+                            <tr>
+                                <td>Name</td>
+                                <td><input type="text" name="name"></td>
+                            </tr>
+                            <tr>
+                                <td>Description</td>
+                                <td><textarea cols="80" rows="5" name="description"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td>Specifications</td>
+                                <td><textarea cols="80" rows="2" name="specifications"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td>Price</td>
+                                <td><input type="number" name="price"></td>
+                            </tr>
+                            <tr>
+                                <td>Stock</td>
+                                <td><input type="number" name="stock"></td>
+                            </tr>
+                            <tr>
+                                <td>Category</td>
+                                <td>
+                                    <select name="category">
+                                        <option>-</option>
+                                        <?php
+                                            foreach($categories as $category) {
+                                                echo "<option value=" . $category->id . ">" . $category->name . "</option>";
+                                            }
+                                        ?>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input class=" btn btn-success" type="submit" onclick="location.href='createProduct.php';" value="Product Aanmaken">
                 </form>
             </div>
         <?php include("footer.php") ?>

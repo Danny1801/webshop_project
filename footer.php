@@ -10,7 +10,7 @@
     </head>
     <body>
         <!-- Footer -->
-        <footer class="page-footer font-small bg-dark pt-4"  style="color:white;">
+        <footer class="page-footer font-small bg-secondary pt-4"  style="color:white;">
 
         <!-- Footer Links -->
         <div class="container text-center text-md-left">
@@ -31,16 +31,16 @@
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold">Popular</h6>
             <p>
-                <a href="categoryPage.php?category=graphics_card">Graphics Cards</a>
+                <a class="footerA" href="categoryPage.php?category=graphics_card">Graphics Cards</a>
             </p>
             <p>
-                <a href="categoryPage.php?category=processor">Processors</a>
+                <a class="footerA" href="categoryPage.php?category=processor">Processors</a>
             </p>
             <p>
-                <a href="categoryPage.php?category=ram">RAM</a>
+                <a class="footerA" href="categoryPage.php?category=ram">RAM</a>
             </p>
             <p>
-                <a href="categoryPage.php?category=motherboard">Motherboards</a>
+                <a class="footerA" href="categoryPage.php?category=motherboard">Motherboards</a>
             </p>
             </div>
             <!-- Grid column -->
@@ -51,16 +51,16 @@
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold">Other</h6>
             <p>
-                <a href="categoryPage.php?category=storage">Storage SSD/HDD</a>
+                <a class="footerA" href="categoryPage.php?category=storage">Storage SSD/HDD</a>
             </p>
             <p>
-                <a href="categoryPage.php?category=power_supply">Power Supplies</a>
+                <a class="footerA" href="categoryPage.php?category=power_supply">Power Supplies</a>
             </p>
             <p>
-                <a href="categoryPage.php?category=cpu_cooler">CPU Coolers</a>
+                <a class="footerA" href="categoryPage.php?category=cpu_cooler">CPU Coolers</a>
             </p>
             <p>
-                <a href="categoryPage.php?category=pc_cases">PC Cases</a>
+                <a class="footerA" href="categoryPage.php?category=pc_cases">PC Cases</a>
             </p>
             </div>
 
@@ -94,7 +94,7 @@
 
             <!--Copyright-->
             <p class="text-center text-md-left">© 2020 Copyright
-                <a href="index.php">
+                <a class="footerA" href="index.php">
                 <strong>DanioComponents.com</strong>
                 </a>
             </p>

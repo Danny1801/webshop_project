@@ -14,6 +14,13 @@
 
     $categories = $stmt->fetchAll(5);
 
+//var_dump($_POST["search"]);
+    if(isset($_POST["search"])) { // AANPASSEN
+        $searchTag = $_POST["search"];
+        header("location:categoryPage.php?search=" . $searchTag);
+        echo "asdfkajsdfhfkjasdhjfkjas";
+    }
+
 ?>
 <html>
     <head>
@@ -24,7 +31,6 @@
     </head>
     <body>
         <?php include("header.php") ?>
-            <input class="m-3 btn btn-warning" type="button" onclick="location.href='adminPage.php';" value="Admin Page">
             <div class="PageContentBg">
                 <?php 
                     echo "<div class='featured indexFeatured-grid-container' onclick='location.href=`productPage.php?product=$featuredProduct->product_code`'>";
@@ -32,7 +38,7 @@
                         echo "<div class='featuredInfoBg'>";
                             echo "<div class='featuredName'>Nieuw in onze collectie <br>$featuredProduct->name</div>";
                             echo "<div class='featuredDescription'>$featuredProduct->description</div>";
-                            echo "<button class='btn btn-success featuredButton'>Product Bekijken</button>";
+                            echo "<button class='btn btn-success featuredButton' style='font-size:1vw;'>Product Bekijken</button>";
                         echo "</div>";
                     echo "</div>";
 
@@ -41,8 +47,8 @@
                             echo "<div class='category' onclick='location.href=`categoryPage.php?category=$category->name`'>";
                                 echo "<div class='categoryName'>$category->display_name</div>";
                                 echo "<img class='categoryImage' src='images/$category->name.jpg' onerror=\"this.onerror=null; this.src='images/not_found.jpg'\">";
-                                echo "<div class='categoryDescription'>$category->tiny_desc</div>";
-                                echo "<button class='btn btn-success categoryButton'>Category Bekijken</button>";
+                                echo "<strong><div class='categoryDescription'>$category->tiny_desc</div></strong>";
+                                echo "<button class='btn btn-success categoryButton' style='line-height:100%; font-size:1vw;'>Bekijken</button>";
                             echo "</div>";
                         }
                     echo "</div>";
