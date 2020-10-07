@@ -37,10 +37,10 @@
                         echo "<div class='productPageName'>$product->name</div>";
                         echo "<div class='productPagePrice'>€$product->price,-</div>";
                         echo "<div class='productPageStock'>Voorraad: $product->stock</div>";
-                        echo "<input class='btn btn-success productPageButton' type='button' onclick='location.href=`payOrder.php?product=$product->product_code`;' value='Kopen'>";
+                        echo "<input class='btn btn-success productPageButton' style='line-height:10%; font-size:1.5vw;' type='button' onclick='location.href=`payOrder.php?product=$product->product_code`;' value='Kopen'>";
                         echo "<div class='productPageDescription'>$product->description</div>";
                         echo "<div class='specificationsTable'>";
-                            echo "<table class='table table-striped'>";
+                            echo "<table class='table table-striped' style='font-size:1vw;'>";
                                 echo "<thead class='table-light'>";
                                     echo "<th>Specificatie</th>";
                                     echo "<th>Waarde</th>";
@@ -64,7 +64,7 @@
                                     echo "<img class='productImage' src='products/$altProduct->category/$altProduct->product_code.jpg' onerror=\"this.onerror=null; this.src='images/not_found.jpg'\">";
                                     echo "<div class='productPrice'>€$altProduct->price,-</div>";
                                     echo "<div class='productStock'>Voorraad: $altProduct->stock</div>";
-                                    echo "<button class='btn btn-success productButton'>Kopen</button>";
+                                    echo "<button class='btn btn-success productButton' style='line-height:100%; font-size:1vw;'>Kopen</button>";
                                 echo "</div>";
                             }
                         echo "</div>";
