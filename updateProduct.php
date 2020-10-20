@@ -41,6 +41,7 @@
         <?php include("header.php") ?>
         <div class="PageContentBg">
             <form method="POST">
+                <div style="color:red;">Let op! Product code is de naam van de foto</div><br>
                 <table class="table table-striped">
                     <tbody>
                         <tr>

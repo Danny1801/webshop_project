@@ -80,7 +80,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <input class=" btn btn-success" type="submit" onclick="location.href='createProduct.php';" value="Product Aanmaken">
+                    <input class="btn btn-success" type="submit" onclick="location.href='createProduct.php';" value="Product Aanmaken">
                 </form>
             </div>
         <?php include("footer.php") ?>
