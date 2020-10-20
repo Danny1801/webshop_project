@@ -2,7 +2,6 @@
 
     require_once("database.php");
 
-    //$stmt = $con->prepare("SELECT * FROM products WHERE product_code=?");
     $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id WHERE product_code=?");
     $stmt->bindValue(1, "1112"); // Zet hier de product_code van het product die je als featured wil hebben
     $stmt->execute();
@@ -13,13 +12,6 @@
     $stmt->execute();
 
     $categories = $stmt->fetchAll(5);
-
-//var_dump($_POST["search"]);
-    if(isset($_POST["search"])) { // AANPASSEN
-        $searchTag = $_POST["search"];
-        header("location:categoryPage.php?search=" . $searchTag);
-        echo "asdfkajsdfhfkjasdhjfkjas";
-    }
 
 ?>
 <html>

@@ -7,6 +7,15 @@
 
     $headCategories = $stmt->fetchAll(5);
 
+    if(isset($_GET["searchTag"])) {
+        $searchTag = $_GET["searchTag"];
+        if(strlen($searchTag) >= 3) {
+            header("location:categoryPage.php?search=$searchTag");
+        } else {
+            echo "<script type='text/javascript'>alert('Zoekterm `" . $searchTag . "` is te kort. Voer minimaal 3 karakters in.'); window.location.href='index.php'</script>";
+        }
+    }
+
 ?>
 <html>
     <head>        
@@ -17,8 +26,8 @@
     <body>
         <div class="header">
             <div>
-                <img src="images/logo.png" class="logo" alt="Cinque Terre">
-                <input class="m-3 btn btn-warning" style="position:absolute;" type="button" onclick="location.href='adminPage.php';" value="Admin Page">
+                <img src="images/logo.png" class="logo" alt="Cinque Terre" onclick="location.href='index.php'">
+                <input class="m-5 btn btn-warning" style="position:absolute;" type="button" onclick="location.href='adminPage.php';" value="Admin Page">
                 <div class="cartLoginContainer">
                     <a class="login" href="login.php" value="Login">Login</a>
                     <img src="images/cart.png" class="winkelwagen" onclick="location.href='payOrder.php'">
@@ -50,9 +59,9 @@
                     <a class="nav-link text-white" href="contactPage.php">Contact</a>
                 </li>
                 </ul>
-                <form class="form-inline searchBar mx-auto" method="POST">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Zoek naar een product" name="search">
-                    <a class="btn btn-success my-2 my-sm-0 text-light" href="index.php?search=true" type="submit">Zoeken</a>
+                <form class="form-inline searchBar mx-auto" method="GET" action="index.php">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Zoek naar een product" name="searchTag">
+                    <input class="btn btn-success my-2 my-sm-0 text-light" value="Zoeken" type="submit">
                 </form>
             </nav>
         <div>
