@@ -40,7 +40,6 @@
             <nav class="navbar navbar-expand-sm bg-secondary navbar-dark menubar">
                 <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-<<<<<<< HEAD
 
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
@@ -57,8 +56,6 @@
                         <a class="dropdown-item" href="">Behuizingen</a>
                         <a class="dropdown-item" href="">Accesiores</a>
                     <a class="nav-link text-white" href="index.php">Home</a>
-=======
->>>>>>> c0d191c494dea8ce8e799474cdc456504a06d70d
                 </li>
 
                 <!-- <div class="dropdown">
