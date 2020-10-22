@@ -35,12 +35,18 @@
                     echo "<img class='productPageImage grid-item' src='products/$product->category/$product->product_code.jpg' onerror=\"this.onerror=null; this.src='images/not_found.jpg'\">";
                     echo "<div class='productInfoBg grid-item'>";
                         echo "<div class='productPageName'>$product->name</div>";
-                        echo "<div class='productPagePrice'>€$product->price,-</div>";
-                        echo "<div class='productPageStock'>Voorraad: $product->stock</div>";
-                        echo "<input class='btn btn-success productPageButton' type='button' onclick='location.href=`payOrder.php?product=$product->product_code`;' value='Kopen'>";
+                        if(!$product->stock > 0) {
+                            echo "<div style='color:grey' class='productPagePrice'>€$product->price,-</div>";
+                            echo "<div style='color:salmon' class='productPageStock'>Voorraad: $product->stock</div>";
+                            echo "<input class='btn btn-secondary productPageButton' style='line-height:10%; font-size:1.2vw;' type='button' onclick='' value='Kopen'>";
+                        } else {
+                            echo "<div style='color:green' class='productPagePrice'>€$product->price,-</div>";
+                            echo "<div style='color:green' class='productPageStock'>Voorraad: $product->stock</div>";
+                            echo "<input class='btn btn-success productPageButton' style='line-height:10%; font-size:1.2vw;' type='button' onclick='location.href=`payOrder.php?product=$product->product_code`;' value='Kopen'>";
+                        }
                         echo "<div class='productPageDescription'>$product->description</div>";
                         echo "<div class='specificationsTable'>";
-                            echo "<table class='table table-striped'>";
+                            echo "<table class='table table-striped' style='font-size:0.8vw;line-height:0.8vw;'>";
                                 echo "<thead class='table-light'>";
                                     echo "<th>Specificatie</th>";
                                     echo "<th>Waarde</th>";
@@ -48,9 +54,15 @@
                                 echo "<tbody>";
                                     for ($i = 0; $i < $elements; $i++) {
                                         echo "<tr>";
-                                        echo "<td>" . $properties[$i] . "</td><td>" . $specifications[$properties[$i]] . "</td>";
+                                            echo "<td>" . $properties[$i] . "</td><td>" . $specifications[$properties[$i]] . "</td>";
                                         echo "</tr>";
                                     }
+                                    echo "<tr>";
+                                        echo "<td>Product code</td><td>" . $product->product_code . "</td>";
+                                    echo "</tr>";
+                                    echo "<tr>";
+                                        echo "<td>Category code</td><td>" . $product->category . "</td>";
+                                    echo "</tr>";
                                 echo "</tbody>";
                             echo "</table>";
                         echo "</div>";
@@ -62,9 +74,15 @@
                                 echo "<div class='product' onclick='location.href=`productPage.php?product=$altProduct->product_code`'>";
                                     echo "<div class='productName'>$altProduct->name</div>";
                                     echo "<img class='productImage' src='products/$altProduct->category/$altProduct->product_code.jpg' onerror=\"this.onerror=null; this.src='images/not_found.jpg'\">";
-                                    echo "<div class='productPrice'>€$altProduct->price,-</div>";
-                                    echo "<div class='productStock'>Voorraad: $altProduct->stock</div>";
-                                    echo "<button class='btn btn-success productButton'>Kopen</button>";
+                                    if(!$altProduct->stock > 0) {
+                                        echo "<div style='color:grey' class='productPrice'>€$altProduct->price,-</div>";
+                                        echo "<div style='color:salmon' class='productStock'>Voorraad: $altProduct->stock</div>";
+                                        echo "<button class='btn btn-secondary productButton' style='line-height:100%; font-size:1vw;'>Kopen</button>";
+                                    } else {
+                                        echo "<div style='color:green' class='productPrice'>€$altProduct->price,-</div>";
+                                        echo "<div style='color:green' class='productStock'>Voorraad: $altProduct->stock</div>";
+                                        echo "<button class='btn btn-success productButton' style='line-height:100%; font-size:1vw;'>Kopen</button>";
+                                    }
                                 echo "</div>";
                             }
                         echo "</div>";
