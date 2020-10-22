@@ -35,7 +35,6 @@
         <title>Edit <?php echo $product->name?> - Danio Components</title>
         <link rel="stylesheet" href="styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
         <?php include("header.php") ?>
@@ -46,11 +45,11 @@
                     <tbody>
                         <tr>
                             <td>Product code</td>
-                            <td><input type="text" name="product_code" value="<?php echo $product->product_code ?>"></td>
+                            <td><input type="text" name="product_code" maxlength="45" value="<?php echo $product->product_code ?>"></td>
                         </tr>
                         <tr>
                             <td>Name</td>
-                            <td><input type="text" name="name" value="<?php echo $product->name ?>"></td>
+                            <td><input type="text" name="name" maxlength="60" size="50" value="<?php echo $product->name ?>"></td>
                         </tr>
                         <tr>
                             <td>Description</td>

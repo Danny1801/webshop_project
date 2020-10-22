@@ -1,5 +1,10 @@
 <?php
 
+    if(!isset($_SESSION)) {
+        session_start();
+        $_SESSION["cart"] = [];
+    }
+
     require_once("database.php");
 
     $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id WHERE product_code=?");
@@ -8,7 +13,7 @@
 
     $featuredProduct = $stmt->fetchObject();
 
-    $stmt = $con->prepare("SELECT * FROM categories LIMIT 4");
+    $stmt = $con->prepare("SELECT * FROM categories LIMIT 8");
     $stmt->execute();
 
     $categories = $stmt->fetchAll(5);
@@ -19,7 +24,6 @@
         <title>Home - Danio Components</title>
         <link rel="stylesheet" href="styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
         <?php include("header.php") ?>
