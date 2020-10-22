@@ -36,7 +36,7 @@
             <nav class="navbar navbar-expand-sm bg-secondary navbar-dark menubar">
                 <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-<<<<<<< HEAD
+
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
                 <li class="nav-item dropdown">
@@ -51,7 +51,6 @@
                         <a class="dropdown-item" href="">Opslag</a>
                         <a class="dropdown-item" href="">Behuizingen</a>
                         <a class="dropdown-item" href="">Accesiores</a>
-=======
                     <a class="nav-link text-white" href="index.php">Home</a>
                 </li>
                 <!-- Dropdown -->
@@ -69,7 +68,7 @@
                             }
                         
                         ?>
->>>>>>> 19f6ee1be31cbcf8442649921984a9f6b30f8e89
+
                     </div>
                 </li>        
                 <li class="nav-item">
