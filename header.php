@@ -40,7 +40,6 @@
             <nav class="navbar navbar-expand-sm bg-secondary navbar-dark menubar">
                 <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    <button onclick="window.location.href='index.php'" class="mr-3 btn btn-dark">Home</button>
                 </li>
 
                 <!-- <div class="dropdown">
@@ -56,6 +55,7 @@
                             }
                         
                         ?>
+
                     </div>
                 </div> -->
 
