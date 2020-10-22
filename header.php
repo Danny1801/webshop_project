@@ -30,15 +30,15 @@
                 <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Componenten</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Processors</a>
-                        <a class="dropdown-item" href="#">videokaarten</a>
-                        <a class="dropdown-item" href="#">Ram</a>
-                        <a class="dropdown-item" href="#">Moederborden</a>
-                        <a class="dropdown-item" href="#">Koeling</a>
-                        <a class="dropdown-item" href="#">Voeding</a>
-                        <a class="dropdown-item" href="#">Opslag</a>
-                        <a class="dropdown-item" href="#">Behuizingen</a>
-                        <a class="dropdown-item" href="#">Accesiores</a>
+                        <a class="dropdown-item" href="">Processors</a>
+                        <a class="dropdown-item" href="categoryPage.php?graphics_card">videokaarten</a>
+                        <a class="dropdown-item" href="">Ram</a>
+                        <a class="dropdown-item" href="">Moederborden</a>
+                        <a class="dropdown-item" href="">Koeling</a>
+                        <a class="dropdown-item" href="">Voeding</a>
+                        <a class="dropdown-item" href="">Opslag</a>
+                        <a class="dropdown-item" href="">Behuizingen</a>
+                        <a class="dropdown-item" href="">Accesiores</a>
                     </div>
                 </li>        
                     <!-- Dropdown -->
