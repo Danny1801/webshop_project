@@ -36,6 +36,22 @@
             <nav class="navbar navbar-expand-sm bg-secondary navbar-dark menubar">
                 <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
+
+                        <a class="nav-link" href="index.php">Home</a>
+                    </li>
+                <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Componenten</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="">Processors</a>
+                        <a class="dropdown-item" href="">videokaarten</a>
+                        <a class="dropdown-item" href="">Ram</a>
+                        <a class="dropdown-item" href="">Moederborden</a>
+                        <a class="dropdown-item" href="">Koeling</a>
+                        <a class="dropdown-item" href="">Voeding</a>
+                        <a class="dropdown-item" href="">Opslag</a>
+                        <a class="dropdown-item" href="">Behuizingen</a>
+                        <a class="dropdown-item" href="">Accesiores</a>
+                      
                     <a class="nav-link text-white" href="index.php">Home</a>
                 </li>
                 <!-- Dropdown -->
@@ -53,6 +69,7 @@
                             }
                         
                         ?>
+
                     </div>
                 </li>        
                 <li class="nav-item">
