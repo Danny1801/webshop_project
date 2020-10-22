@@ -1,5 +1,10 @@
 <?php
 
+    if(!isset($_SESSION)) {
+        session_start();
+        $_SESSION["cart"] = [];
+    }
+
     require_once("database.php");
 
     if(isset($_GET["category"])) {
@@ -47,7 +52,6 @@
         <title><?php if(isset($_GET["search"])) { echo '"' . $_GET["search"] . '"'; } else { echo $category->display_name; } ?> - Danio Components</title>
         <link rel="stylesheet" href="styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
         <?php include("header.php") ?>
@@ -63,13 +67,13 @@
                     } else {
                         if(count($products) > 1) {
                             if(isset($_GET["category"])) {
-                                echo "<input class='mb-4 mr-3 btn btn-primary' type='button' onclick='location.href=`?category=" . $_GET["category"] . "`;' value='Standaard'>";
-                                echo "<input class='mb-4 mr-3 btn btn-secondary' type='button' onclick='location.href=`?category=" . $_GET["category"] . "&order=asc`;' value='Prijs laag - hoog'>";
-                                echo "<input class='mb-4 mr-3 btn btn-secondary' type='button' onclick='location.href=`?category=" . $_GET["category"] . "&order=desc`;' value='Prijs hoog - laag'>";
+                                echo "<input style='line-height:150%; font-size:1vw;' class='mb-4 mr-3 btn btn-primary' type='button' onclick='location.href=`?category=" . $_GET["category"] . "`;' value='Standaard'>";
+                                echo "<input style='line-height:150%; font-size:1vw;' class='mb-4 mr-3 btn btn-secondary' type='button' onclick='location.href=`?category=" . $_GET["category"] . "&order=asc`;' value='Prijs laag - hoog'>";
+                                echo "<input style='line-height:150%; font-size:1vw;' class='mb-4 mr-3 btn btn-secondary' type='button' onclick='location.href=`?category=" . $_GET["category"] . "&order=desc`;' value='Prijs hoog - laag'>";
                             } elseif(isset($_GET["search"])) {
-                                echo "<input class='mb-4 mr-3 btn btn-primary' type='button' onclick='location.href=`?search=" . $_GET["search"] . "`;' value='Standaard'>";
-                                echo "<input class='mb-4 mr-3 btn btn-secondary' type='button' onclick='location.href=`?search=" . $_GET["search"] . "&order=asc`;' value='Prijs laag - hoog'>";
-                                echo "<input class='mb-4 mr-3 btn btn-secondary' type='button' onclick='location.href=`?search=" . $_GET["search"] . "&order=desc`;' value='Prijs hoog - laag'>";
+                                echo "<input style='line-height:150%; font-size:1vw;' class='mb-4 mr-3 btn btn-primary' type='button' onclick='location.href=`?search=" . $_GET["search"] . "`;' value='Standaard'>";
+                                echo "<input style='line-height:150%; font-size:1vw;' class='mb-4 mr-3 btn btn-secondary' type='button' onclick='location.href=`?search=" . $_GET["search"] . "&order=asc`;' value='Prijs laag - hoog'>";
+                                echo "<input style='line-height:150%; font-size:1vw;' class='mb-4 mr-3 btn btn-secondary' type='button' onclick='location.href=`?search=" . $_GET["search"] . "&order=desc`;' value='Prijs hoog - laag'>";
                             }
                         }
                         

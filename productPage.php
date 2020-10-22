@@ -1,5 +1,10 @@
 <?php
 
+    if(!isset($_SESSION)) {
+        session_start();
+        $_SESSION["cart"] = [];
+    }
+
     require_once("database.php");
 
     $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id WHERE product_code=?");
@@ -19,6 +24,13 @@
     $stmt->execute();
 
     $altProducts = $stmt->fetchAll(5);
+
+    print_r($_SESSION["cart"]);
+
+    if($_POST) {
+        array_push($_SESSION["cart"], $product->product_code);
+        print_r($_SESSION["cart"]);
+    }
     
 ?>
 <html>
@@ -26,7 +38,6 @@
         <title><?php echo $product->name ?> - Danio Components</title>
         <link rel="stylesheet" href="styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
         <?php include("header.php"); ?>
@@ -38,11 +49,11 @@
                         if(!$product->stock > 0) {
                             echo "<div style='color:grey' class='productPagePrice'>€$product->price,-</div>";
                             echo "<div style='color:salmon' class='productPageStock'>Voorraad: $product->stock</div>";
-                            echo "<input class='btn btn-secondary productPageButton' style='line-height:10%; font-size:1.2vw;' type='button' onclick='' value='Kopen'>";
+                            echo "<input class='btn btn-secondary productPageButton' style='line-height:10%; font-size:1.2vw;' type='button' value='Uitverkocht'>";
                         } else {
                             echo "<div style='color:green' class='productPagePrice'>€$product->price,-</div>";
                             echo "<div style='color:green' class='productPageStock'>Voorraad: $product->stock</div>";
-                            echo "<input class='btn btn-success productPageButton' style='line-height:10%; font-size:1.2vw;' type='button' onclick='location.href=`payOrder.php?product=$product->product_code`;' value='Kopen'>";
+                            echo "<input class='btn btn-success productPageButton' style='line-height:10%; font-size:1.2vw;' type='submit' value='Kopen'>"; // onclick='location.href=`payOrder.php?product=$product->product_code`;'
                         }
                         echo "<div class='productPageDescription'>$product->description</div>";
                         echo "<div class='specificationsTable'>";
@@ -61,7 +72,7 @@
                                         echo "<td>Product code</td><td>" . $product->product_code . "</td>";
                                     echo "</tr>";
                                     echo "<tr>";
-                                        echo "<td>Category code</td><td>" . $product->category . "</td>";
+                                        echo "<td>Category name</td><td>" . $product->category . "</td>";
                                     echo "</tr>";
                                 echo "</tbody>";
                             echo "</table>";

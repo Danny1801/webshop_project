@@ -18,7 +18,8 @@
 
 ?>
 <html>
-    <head>        
+    <head>  
+        <link rel="shortcut icon" href="">      
         <link rel="stylesheet" href="styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -30,12 +31,16 @@
                 <input class="m-5 btn btn-warning" style="position:absolute;" type="button" onclick="location.href='adminPage.php';" value="Admin Page">
                 <div class="cartLoginContainer">
                     <a class="login" href="login.php" value="Login">Login</a>
-                    <img src="images/cart.png" class="winkelwagen" onclick="location.href='payOrder.php'">
+                    <div>
+                        <img src="images/cart.png" class="winkelwagen" onclick="location.href='payOrder.php'">
+                        <p class="text-success" style="font-weight:bold; font-size:20px;"><?php if(count($_SESSION["cart"]) > 0) { echo count($_SESSION["cart"]); } else { echo 0; } ?></p>
+                    </div>
                 </div>
             </div>
             <nav class="navbar navbar-expand-sm bg-secondary navbar-dark menubar">
                 <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
+<<<<<<< HEAD
 
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
@@ -52,15 +57,16 @@
                         <a class="dropdown-item" href="">Behuizingen</a>
                         <a class="dropdown-item" href="">Accesiores</a>
                     <a class="nav-link text-white" href="index.php">Home</a>
+=======
+>>>>>>> c0d191c494dea8ce8e799474cdc456504a06d70d
                 </li>
-                <!-- Dropdown -->
-                <li class="nav-item dropdown show">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Componenten</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class='dropdown-item' href='#'>asdfasdkjf</a>
-                        <a class='dropdown-item' href='#'>asdfasdkjf</a>
-                        <a class='dropdown-item' href='#'>asdfasdkjf</a>
-                        <a class='dropdown-item' href='#'>asdfasdkjf</a>
+
+                <!-- <div class="dropdown">
+                    <button class="mr-3 btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" data-target=".dropdown-menu" aria-haspopup="true" aria-expanded="false">Componenten</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
                         <?php
                         
                             foreach($headCategories as $headCategory) {
@@ -70,9 +76,10 @@
                         ?>
 
                     </div>
-                </li>        
+                </div> -->
+
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="contactPage.php">Contact</a>
+                    <button onclick="window.location.href='contactPage.php'" class="btn btn-dark">Contact</button>
                 </li>
                 </ul>
                 <form class="form-inline searchBar mx-auto" method="GET" action="index.php">
