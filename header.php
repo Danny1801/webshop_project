@@ -38,7 +38,7 @@
                     <a class="login"  href="login.php" value="Login">Login</a>
                     <div>
                         <img src="images/cart.png" class="winkelwagen" onclick="location.href='payOrder.php'">
-                        <p class="text-success" style="font-weight:bold; font-size:20px;"><?php if(count($_SESSION["cart"]) > 0) { echo count($_SESSION["cart"]); } else { echo 0; } ?></p>
+                        <p class="text-primary" style="font-weight:bold; font-size:20px;"><?php if(count($_SESSION["cart"]) > 0) { echo count($_SESSION["cart"]); } else { echo 0; } ?></p>
                     </div>
                 </div>
             </div>
@@ -50,6 +50,7 @@
                 <li class="nav-item">
                     <button onclick="window.location.href='index.php'" class="btn btn-secondary">Home</button>
                 </li>
+
 
                 <div class="dropdown">
                     <button class="mr-3 btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" data-target=".dropdown-menu" aria-haspopup="true" aria-expanded="false">Componenten</button>
@@ -65,7 +66,9 @@
                 </div>
 
                 <li class="nav-item">
-                    <button onclick="window.location.href='contactPage.php'" class="btn btn-secondary">Contact</button>
+
+                    <button onclick="window.location.href='contactPage.php'" class="btn btn-dark">Over Ons</button>
+
                 </li>
                 </ul>
                 <form class="form-inline searchBar mx-auto" method="GET" action="index.php">
