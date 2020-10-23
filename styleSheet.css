@@ -101,8 +101,9 @@ body {
     .login {
         margin-top:10px;
         font-size: larger;
-        color:royalblue;
+        color: rgb(56, 56, 56);
         float:left;
+        font-weight: bold;
     }
     
     .winkelwagen {
