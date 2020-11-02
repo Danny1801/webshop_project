@@ -38,7 +38,7 @@
                     <a class="login"  href="login.php" value="Login">Login</a>
                     <div>
                         <img src="images/cart.png" class="winkelwagen" onclick="location.href='payOrder.php'">
-                        <p class="text-primary" style="font-weight:bold; font-size:20px;"><?php if(count($_SESSION["cart"]) > 0) { echo count($_SESSION["cart"]); } else { echo 0; } ?></p>
+                        <p class="text-success" id="aantal" style="font-weight:bold; font-size:20px;"><?php if(count($_SESSION["cart"]) > 0) { echo count($_SESSION["cart"]); } else { echo 0; } ?></p>
                     </div>
                 </div>
             </div>
