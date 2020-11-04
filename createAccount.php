@@ -25,28 +25,29 @@
 
 ?>
 <html>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<?php include("header.php"); ?>
-
-<div class="PageContentBg">
-    <div id="formContent">
-
-        <form method="POST">
-        <input type="text" id="firstname" name="firstname" placeholder="firstname"></br></br>
-        <input type="text" id="lastname" name="lastname" placeholder="lastname"></br></br>
-        <input type="text" id="address" name="address" placeholder="address"></br></br>
-        <input type="text" id="email" name="email" placeholder="email"></br></br>
-        <input type="number" id="phone" name="phone" placeholder="phone"></br></br>
-        <input type="password" id="password" name="password" placeholder="password"></br></br>
-        Is Admin : <input type="checkbox" id="isAdmin" name="isAdmin"></br></br>
-        <input type="submit" value="Aanmaken"></br></br>
-        <a href="index.php">Terug naar home</a>
-        </form>
-    </div>
-</div>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <?php include("header.php"); ?>
+            <div class="PageContentBg">
+                <div id="formContent">
+                    <form method="POST">
+                        <input type="text" id="firstname" name="firstname" placeholder="firstname"></br></br>
+                        <input type="text" id="lastname" name="lastname" placeholder="lastname"></br></br>
+                        <input type="text" id="address" name="address" placeholder="address"></br></br>
+                        <input type="text" id="email" name="email" placeholder="email"></br></br>
+                        <input type="number" id="phone" name="phone" placeholder="phone"></br></br>
+                        <input type="password" id="password" name="password" placeholder="password"></br></br>
+                        Is Admin : <input type="checkbox" id="isAdmin" name="isAdmin"></br></br>
+                        <input type="submit" value="Aanmaken"></br></br>
+                        <a href="index.php">Terug naar home</a>
+                    </form>
+                </div>
+            </div>
+        <?php include("footer.php"); ?>
+    </body>
 </html>
 
-<?php include("footer.php"); ?>
