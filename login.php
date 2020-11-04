@@ -1,15 +1,14 @@
 <?php 
 
-    include("header.php"); 
+    include("database.php");
+    include("header.php");
+    //session_start(); 
 
     if(isset($_POST["email"]) && isset($_POST["password"])) {
         $email = $_POST["email"];
         $password = $_POST["password"];
-        //echo "Username: " . $email . "<br>" . "Password: " . $password;
-    
         $hashedPassword = hash('sha256', $password);
     
-        //GLOBAL $con;
     
         $statement = $con->prepare("SELECT * FROM users WHERE email = ? AND Password = ?");
         $statement->bindValue(1,$email);
@@ -17,6 +16,9 @@
         $statement->execute();
     
         $result = $statement->fetchObject();
+
+        header("location:index.php");
+
     }
 
 
@@ -29,9 +31,9 @@
 
     <div class="PageContentBg">
         <div id="formContent">
-            <form>
+            <form action="post">
                 <input type="text" id="email" name="login" placeholder="email"></br></br>
-                <input type="text" id="password" name="login" placeholder="password"></br></br>
+                <input type="password" id="password" name="login" placeholder="password"></br></br>
                 <input type="submit" value="Log In">
             </form>
 
