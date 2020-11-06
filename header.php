@@ -25,7 +25,6 @@
 ?>
 <html>
     <head> 
-
         <link rel="shortcut icon" href="">      
         <link rel="stylesheet" href="styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +32,6 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
     </head>
     <body>
         <div class="header">
@@ -41,12 +39,16 @@
                 <img src="images/logo.png" class="logo" alt="Cinque Terre" onclick="location.href='index.php'">
                 <!--<input class="m-5 btn btn-warning" style="position:absolute;" type="button" onclick="location.href='adminPage.php';" value="Admin Page">-->
                 <div class="cartLoginContainer">
+<<<<<<< HEAD
                     <div>
                         <?php 
                             if()
                         ?>
                     <!--<a class="login"  href="login.php" value="Login">Login</a>-->
                     </div>
+=======
+                    <a class="login" href="login.php" value="Login">Login</a>
+>>>>>>> 226c1af17093c2aef9d15511dcad1f87b352a42b
                     <div>
                         <img src="images/cart.png" class="winkelwagen" onclick="location.href='payOrder.php'">
                         <p class="text-success" id="aantal" style="font-weight:bold; font-size:20px;"><?php if(count($_SESSION["cart"]) > 0) { echo count($_SESSION["cart"]); } else { echo 0; } ?></p>
@@ -57,12 +59,9 @@
                 <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
                 </li>
-
                 <li class="nav-item">
-                    <button onclick="window.location.href='index.php'" class="btn btn-secondary">Home</button>
+                    <button onclick="window.location.href='index.php'" class="mr-3 btn btn-secondary">Home</button>
                 </li>
-
-
                 <div class="dropdown">
                     <button class="mr-3 btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" data-target=".dropdown-menu" aria-haspopup="true" aria-expanded="false">Componenten</button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -75,10 +74,11 @@
                         ?>
                     </div>
                 </div>
-
                 <li class="nav-item">
 
+
                     <button onclick="window.location.href='contactPage.php'" class="btn btn-secondary">Over Ons</button>
+           
 
                 </li>
                 </ul>
