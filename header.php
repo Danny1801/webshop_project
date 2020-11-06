@@ -18,7 +18,7 @@
     }
 
     if(isset($_SESSION["user"]->is_admin) && $_SESSION["user"]->is_admin == 1){
-        echo "<input class='m-5 btn btn-warning' style='position:absolute;' type='button' onclick='location.href='adminPage.php';' value='Admin Page'>";
+        echo "<a class='m-5 btn btn-warning' style='position:absolute;' type='button' href='adminPage.php'>Admin Page</a>";
     }
 
     
@@ -37,18 +37,25 @@
         <div class="header">
             <div>
                 <img src="images/logo.png" class="logo" alt="Cinque Terre" onclick="location.href='index.php'">
+                <div>
+                <?php
+                    //if(isset($_SESSION["user"]->is_admin) && $_SESSION["user"]->is_admin == 1){
+                    //    echo "<input class='m-5 btn btn-warning' style='position:absolute;' type='button' onclick='location.href='adminPage.php';' value='Admin Page'>";
+                    //}
+                ?>    
                 <!--<input class="m-5 btn btn-warning" style="position:absolute;" type="button" onclick="location.href='adminPage.php';" value="Admin Page">-->
+                </div>
                 <div class="cartLoginContainer">
-<<<<<<< HEAD
                     <div>
                         <?php 
-                            if()
+                            if($_SESSION["login"] == 1){
+                                echo "<a class='login' href='session_destroy.php'>Logout</a>";
+                            }else{
+                               echo "<a class='login'  href='login.php'>Login</a>"; 
+                            }
                         ?>
                     <!--<a class="login"  href="login.php" value="Login">Login</a>-->
                     </div>
-=======
-                    <a class="login" href="login.php" value="Login">Login</a>
->>>>>>> 226c1af17093c2aef9d15511dcad1f87b352a42b
                     <div>
                         <img src="images/cart.png" class="winkelwagen" onclick="location.href='payOrder.php'">
                         <p class="text-success" id="aantal" style="font-weight:bold; font-size:20px;"><?php if(count($_SESSION["cart"]) > 0) { echo count($_SESSION["cart"]); } else { echo 0; } ?></p>
