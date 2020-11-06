@@ -18,7 +18,7 @@
     $stmt->execute();
 
     $categories = $stmt->fetchAll(5);
-   
+
 
 ?>
 <html>
