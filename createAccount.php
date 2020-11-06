@@ -5,7 +5,7 @@
     if($_POST){
         	$password = $_POST["password"]; 
             $hashedPassword = hash('sha256', $password);
-        if(isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["address"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["password"]) && isset($_POST["is_admin"])){
+        if(isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["address"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["password"])){
             $stmt = $con->prepare("INSERT INTO users (firstname, lastname, `address`, email, phone, password_hash, is_admin) VALUES(?, ?, ? ,? ,?, ?, ?)");
             $stmt->bindValue(1, $_POST["firstname"]);
             $stmt->bindValue(2, $_POST["lastname"]);

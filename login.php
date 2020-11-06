@@ -1,7 +1,7 @@
 <?php 
 
     require_once("database.php");
-    //session_start(); 
+    session_start(); 
 
     if($_POST){
 
@@ -17,8 +17,11 @@
             $statement->execute();
         
             $result = $statement->fetchObject();
+            
+            $_SESSION["id"] = $_POST["id"];
 
             header("location:index.php");
+
         }
     }    
 

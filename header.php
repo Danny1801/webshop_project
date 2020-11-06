@@ -2,6 +2,7 @@
 
     require_once("database.php");
 
+
     $stmt = $con->prepare("SELECT * FROM categories");
     $stmt->execute();
 
@@ -17,8 +18,8 @@
     }
     
     
-    if(isset($_GET["is_admin"])){
-        $isAdmin = $_GET["is_admin"];
+    if($_SESSION["admin"]){
+        $isAdmin = $_SESSION["admin"];
         if($isAdmin == 1){
             echo "<input class='m-5 btn btn-warning' style='position:absolute;' type='button' onclick='location.href='adminPage.php';' value='Admin Page'>";
         }
@@ -76,7 +77,7 @@
 
                 <li class="nav-item">
 
-                    <button onclick="window.location.href='contactPage.php'" class="btn btn-dark">Over Ons</button>
+                    <button onclick="window.location.href='contactPage.php'" class="btn btn-secondary">Over Ons</button>
 
                 </li>
                 </ul>
