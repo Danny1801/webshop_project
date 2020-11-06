@@ -19,7 +19,6 @@
 
     $categories = $stmt->fetchAll(5);
 
-
 ?>
 <html>
     <head>
