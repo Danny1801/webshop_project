@@ -16,13 +16,9 @@
             echo "<script type='text/javascript'>alert('Zoekterm `" . $searchTag . "` is te kort. Voer minimaal 3 karakters in.'); window.location.href='index.php'</script>";
         }
     }
-    
-    
-    if($_SESSION["admin"]){
-        $isAdmin = $_SESSION["admin"];
-        if($isAdmin == 1){
-            echo "<input class='m-5 btn btn-warning' style='position:absolute;' type='button' onclick='location.href='adminPage.php';' value='Admin Page'>";
-        }
+
+    if(isset($_SESSION["user"]->is_admin) && $_SESSION["user"]->is_admin == 1){
+        echo "<input class='m-5 btn btn-warning' style='position:absolute;' type='button' onclick='location.href='adminPage.php';' value='Admin Page'>";
     }
 
     
@@ -43,7 +39,16 @@
                 <img src="images/logo.png" class="logo" alt="Cinque Terre" onclick="location.href='index.php'">
                 <!--<input class="m-5 btn btn-warning" style="position:absolute;" type="button" onclick="location.href='adminPage.php';" value="Admin Page">-->
                 <div class="cartLoginContainer">
+<<<<<<< HEAD
+                    <div>
+                        <?php 
+                            if()
+                        ?>
+                    <!--<a class="login"  href="login.php" value="Login">Login</a>-->
+                    </div>
+=======
                     <a class="login" href="login.php" value="Login">Login</a>
+>>>>>>> 226c1af17093c2aef9d15511dcad1f87b352a42b
                     <div>
                         <img src="images/cart.png" class="winkelwagen" onclick="location.href='payOrder.php'">
                         <p class="text-success" id="aantal" style="font-weight:bold; font-size:20px;"><?php if(count($_SESSION["cart"]) > 0) { echo count($_SESSION["cart"]); } else { echo 0; } ?></p>
