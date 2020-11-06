@@ -2,6 +2,7 @@
 
     if(!isset($_SESSION)) {
         session_start();
+        ob_start();
         $_SESSION["cart"] = [];
     }
 
@@ -17,13 +18,7 @@
     $stmt->execute();
 
     $categories = $stmt->fetchAll(5);
-
-    $stmt = $con->prepare("SELECT is_admin FROM users WHERE id = ?");
-    $stmt->bindValue(1, $_SESSION["id"]);
-    $stmt->execute();
-
-    $admin = $stmt->fetchObject();
-    $_SESSION["admin"] = $admin;
+   
 
 ?>
 <html>
