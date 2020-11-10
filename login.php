@@ -50,9 +50,9 @@
         <div class="PageContentBg">
             <div id="formContent">
                 <form method="POST">
-                    <input type="text" id="email" name="email" placeholder="email"></br></br>
-                    <input type="password" id="password" name="password" placeholder="password"></br></br>
-                    <input type="submit" value="Log In">
+                    <input type="text" id="email" name="email" placeholder="Email"></br></br>
+                    <input type="password" id="password" name="password" placeholder="Password"></br></br>
+                    <input class="btn btn-success" type="submit" value="Log In">
                 </form>
                 <div id="formFooter">
                     <a class="underlineHover" href="createAccount.php">Account aanmaken</a>
@@ -61,6 +61,7 @@
         </div>    
     <?php include("footer.php"); ?>
     <?php 
+    
         if(!empty($valid)) {
             echo $valid;
         }
