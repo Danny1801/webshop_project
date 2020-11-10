@@ -1,10 +1,5 @@
 <?php
 
-    if(!isset($_SESSION)) {
-        session_start();
-        $_SESSION["cart"] = [];
-    }
-
     require_once("database.php");
             
     $stmt = $con->prepare("SELECT * FROM products WHERE product_code=?");
@@ -90,7 +85,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <input class=" btn btn-success" type="submit" onclick="location.href='createProduct.php';" value="Wijzigingen Opslaan">
+                <input class=" btn btn-success" type="submit" value="Wijzigingen Opslaan">
             </form>
         </div>
         <?php include("footer.php") ?>
