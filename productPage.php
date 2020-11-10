@@ -1,10 +1,5 @@
 <?php
 
-    if(!isset($_SESSION)) {
-        session_start();
-        $_SESSION["cart"] = [];
-    }
-
     require_once("database.php");
 
     $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id WHERE product_code=?");
@@ -24,13 +19,6 @@
     $stmt->execute();
 
     $altProducts = $stmt->fetchAll(5);
-
-    print_r($_SESSION["cart"]);
-
-    if($_POST) {
-        array_push($_SESSION["cart"], $product->product_code);
-        print_r($_SESSION["cart"]);
-    }
     
 ?>
 <html>
@@ -53,7 +41,9 @@
                         } else {
                             echo "<div style='color:green' class='productPagePrice'>€$product->price,-</div>";
                             echo "<div style='color:green' class='productPageStock'>Voorraad: $product->stock</div>";
-                            echo "<input class='btn btn-success productPageButton' style='line-height:10%; font-size:1.2vw;' type='submit' value='Kopen'>"; // onclick='location.href=`payOrder.php?product=$product->product_code`;'
+                            echo "<form method='post' action='payOrder.php?addProduct=$product->product_code'>";
+                                echo "<input class='btn btn-success productPageButton' style='line-height:10%; font-size:1.2vw;' type='submit' value='Kopen'>"; // onclick='location.href=`payOrder.php?product=$product->product_code`;'
+                            echo "</form>";
                         }
                         echo "<div class='productPageDescription'>$product->description</div>";
                         echo "<div class='specificationsTable'>";
@@ -103,3 +93,10 @@
         <?php include("footer.php") ?>
     </body>
 </html>
+<?php
+
+    if($_POST) {
+        header("location:payOrder.php?addProduct=$product->product_code");
+    }
+
+?>

@@ -60,6 +60,8 @@ body {
 
     .productImage {
         width:85%;
+        display:block;
+        height:auto;
         margin-left:7.5%;
         border:solid silver 1px;
         border-radius: 5px;
