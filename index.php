@@ -2,8 +2,11 @@
 
     require_once("database.php");
 
+    $a = array("a"=>"1234", "b"=>"8765", "c"=>"5678", "d"=>"1112", "e"=>"9090");
+    shuffle($a);
+
     $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id WHERE product_code=?");
-    $stmt->bindValue(1, "1112"); // Zet hier de product_code van het product die je als featured wil hebben
+    $stmt->bindValue(1, $a[0]); // Zet hier de product_code van het product die je als featured wil hebben
     $stmt->execute();
 
     $featuredProduct = $stmt->fetchObject();

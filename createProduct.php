@@ -25,7 +25,7 @@
 
             $stmt->execute();
 
-            header("location:index.php");
+            header("location:adminPage.php");
         } else {
             echo "<script type='text/javascript'>alert('Alle velden moeten ingevuld zijn!');</script>";
         }

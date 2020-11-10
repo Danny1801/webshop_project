@@ -1,24 +1,39 @@
 <?php 
 
     require_once("database.php");
-    //session_start(); 
+    ob_start();
+    session_start(); 
+
+    $valid = "";
 
     if($_POST){
-
-            $email = $_POST["email"];
-            $password = $_POST["password"];
-            $hashedPassword = hash('sha256', $password);
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        $hashedPassword = hash('sha256', $password);
 
         if(isset($_POST["email"]) && isset($_POST["password"])) {
-            
-            $statement = $con->prepare("SELECT * FROM users WHERE email = ? AND password_hash = ?");
-            $statement->bindValue(1,$email);
-            $statement->bindValue(2,$hashedPassword);
-            $statement->execute();
-        
-            $result = $statement->fetchObject();
+            if(empty($_POST["email"]) || empty($_POST["password"])) {
+                $valid = "<script type='text/javascript'>alert('Niet alle velden zijn ingevuld!');</script>";
+            }
+            else {
 
-            header("location:index.php");
+                $statement = $con->prepare("SELECT * FROM users WHERE email = ? AND password_hash = ?");
+                $statement->bindValue(1,$email);
+                $statement->bindValue(2,$hashedPassword);
+                $statement->execute();
+            
+                $result = $statement->fetchObject();
+                if($result !== false) {
+                    
+                    $_SESSION["user"] = $result;
+                    $_SESSION["login"] = 1;
+
+                    header("location:index.php");
+                }
+                else {
+                    $valid = "<script type='text/javascript'>alert('De logingegevens zijn niet juist!');</script>";
+                }
+            }
         }
     }    
 
@@ -45,5 +60,11 @@
             </div>
         </div>    
     <?php include("footer.php"); ?>
+    <?php 
+        if(!empty($valid)) {
+            echo $valid;
+        }
+    
+    ?>
     </body>
 </html>
