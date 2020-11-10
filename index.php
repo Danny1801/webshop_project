@@ -1,11 +1,5 @@
 <?php
 
-    if(!isset($_SESSION)) {
-        session_start();
-        ob_start();
-        $_SESSION["cart"] = [];
-    }
-
     require_once("database.php");
 
     $a = array("a"=>"1234", "b"=>"8765", "c"=>"5678", "d"=>"1112", "e"=>"9090");

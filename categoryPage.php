@@ -1,10 +1,5 @@
 <?php
 
-    if(!isset($_SESSION)) {
-        session_start();
-        $_SESSION["cart"] = [];
-    }
-
     require_once("database.php");
 
     if(isset($_GET["category"])) {

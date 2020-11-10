@@ -1,10 +1,5 @@
 <?php
 
-    if(!isset($_SESSION)) {
-        session_start();
-        $_SESSION["cart"] = [];
-    }
-
     require_once("database.php");
 
     if(isset($_GET["category"])) {
@@ -32,14 +27,14 @@
                 <table class="table table-striped table-responsive">
                     <thead>
                         <th>Id</th>
-                        <th>Image</th>
+                        <th>Foto</th>
                         <th>Code</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Specifications</th>
-                        <th>Price</th>
-                        <th>Stock</th>
-                        <th>Category</th>
+                        <th>Naam</th>
+                        <th>Beschrijving</th>
+                        <th>Specificaties</th>
+                        <th>Prijs</th>
+                        <th>Voorraad</th>
+                        <th>Categorie</th>
                         <th>Wijzigen</th>
                         <th>Verwijderen</th>
                     </thead>
