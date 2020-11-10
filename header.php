@@ -3,6 +3,7 @@
     if(!isset($_SESSION)) {
         session_start();
         $_SESSION["cart"];
+        $_SESSION["login"];
     }
 
     require_once("database.php");

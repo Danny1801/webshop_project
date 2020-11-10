@@ -1,7 +1,7 @@
 <?php
-    //session_start();
-    //session_destroy();
+    session_start();
     $_SESSION["login"] = 0;
+    $_SESSION["user"] = "";
     header("Location:index.php");
 ?>
 
