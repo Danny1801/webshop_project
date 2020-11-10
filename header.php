@@ -2,6 +2,7 @@
 
     require_once("database.php");
 
+    
 
     $stmt = $con->prepare("SELECT * FROM categories");
     $stmt->execute();
