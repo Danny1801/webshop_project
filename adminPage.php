@@ -94,17 +94,31 @@
                             <tbody>
                                 <?php 
                                     foreach($users as $user) {
-                                        echo "<tr>";
-                                        echo "<td>" . $user->id . "</td>";
-                                        echo "<td>" . $user->firstname . "</td>";
-                                        echo "<td>" . $user->lastname . "</td>";
-                                        echo "<td>" . $user->address . "</td>";
-                                        echo "<td>" . $user->email . "</td>";
-                                        echo "<td>" . $user->phone . "</td>";
-                                        echo "<td>" . $user->is_admin . "</td>";
-                                        echo "<td><a href='updateUser.php?user_id=" . $user->id . "'>Wijzig</a></td>";
-                                        echo "<td><a style='color:red;' href='deleteUser.php?user_id=" . $user->id . "'>Verwijder</a></td>";
-                                        echo "</tr>";
+                                        if($user->id != $_SESSION["login"]) {
+                                            echo "<tr>";
+                                            echo "<td>" . $user->id . "</td>";
+                                            echo "<td>" . $user->firstname . "</td>";
+                                            echo "<td>" . $user->lastname . "</td>";
+                                            echo "<td>" . $user->address . "</td>";
+                                            echo "<td>" . $user->email . "</td>";
+                                            echo "<td>" . $user->phone . "</td>";
+                                            echo "<td>" . $user->is_admin . "</td>";
+                                            echo "<td><a href='updateUser.php?user_id=" . $user->id . "'>Wijzig</a></td>";
+                                            echo "<td><a style='color:red;' href='deleteUser.php?user_id=" . $user->id . "'>Verwijder</a></td>";
+                                            echo "</tr>";
+                                        } else {
+                                            echo "<tr>";
+                                            echo "<td>" . $user->id . "</td>";
+                                            echo "<td>" . $user->firstname . "</td>";
+                                            echo "<td>" . $user->lastname . "</td>";
+                                            echo "<td>" . $user->address . "</td>";
+                                            echo "<td>" . $user->email . "</td>";
+                                            echo "<td>" . $user->phone . "</td>";
+                                            echo "<td>" . $user->is_admin . "</td>";
+                                            echo "<td><a href='updateUser.php?user_id=" . $user->id . "'>Wijzig</a></td>";
+                                            echo "<td>-</td>";
+                                            echo "</tr>";
+                                        }
                                     }
                                 ?>
                             </tbody>
