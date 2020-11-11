@@ -4,7 +4,6 @@
         session_start();
         $_SESSION["cart"];
         $_SESSION["login"];
-
     }
 
     require_once("database.php");
@@ -26,7 +25,6 @@
     if(isset($_SESSION["user"]->is_admin) && $_SESSION["user"]->is_admin == 1){
         echo "<a class='m-5 btn btn-warning' style='position:absolute;' type='button' href='adminPage.php'>Admin Page</a>";
     }
-
     
 ?>
 <html>
@@ -43,14 +41,6 @@
         <div class="header">
             <div>
                 <img src="images/logo.png" class="logo" alt="Cinque Terre" onclick="location.href='index.php'">
-                <div>
-                <?php
-                    //if(isset($_SESSION["user"]->is_admin) && $_SESSION["user"]->is_admin == 1){
-                    //    echo "<input class='m-5 btn btn-warning' style='position:absolute;' type='button' onclick='location.href='adminPage.php';' value='Admin Page'>";
-                    //}
-                ?>    
-                <!--<input class="m-5 btn btn-warning" style="position:absolute;" type="button" onclick="location.href='adminPage.php';" value="Admin Page">-->
-                </div>
                 <div class="cartLoginContainer">
                     <div>
                         <?php 
@@ -60,11 +50,20 @@
                                echo "<a class='login'  href='login.php'>Login</a>"; 
                             }
                         ?>
-                    <!--<a class="login"  href="login.php" value="Login">Login</a>-->
                     </div>
                     <div>
                         <img src="images/cart.png" class="winkelwagen" onclick="location.href='payOrder.php'">
-                        <p class="text-success" id="aantal" style="font-weight:bold; font-size:20px;"><?php if(count($_SESSION["cart"]) > 0) { echo count($_SESSION["cart"]); } else { echo 0; } ?></p>
+                        <p class="text-success" id="aantal" style="font-weight:bold; font-size:20px;">
+                            <?php 
+                                $cartItemAmount = 0;
+
+                                foreach($_SESSION["cart"] as $key => $value) {
+                                    $cartItemAmount += $_SESSION["cart"][$key][1];
+                                }
+
+                                echo $cartItemAmount;
+                            ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -88,11 +87,7 @@
                     </div>
                 </div>
                 <li class="nav-item">
-
-
                     <button onclick="window.location.href='contactPage.php'" class="btn btn-secondary">Over Ons</button>
-           
-
                 </li>
                 </ul>
                 <form class="form-inline searchBar mx-auto" method="GET" action="index.php">
