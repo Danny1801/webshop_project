@@ -10,19 +10,19 @@
     if(isset($_GET["addProduct"])) {
         $addProduct = $_GET["addProduct"];
         if(array_search($_SESSION["cart"], $addProduct)) {
-            //array_replace($_SESSION["cart"]);
+            array_replace($_SESSION["cart"]);
         } else {
             $newProduct["name"] = array($addProduct => 1);
-            //array_push($_SESSION["cart"], $newProduct["name"]));
+            array_push($_SESSION["cart"], $newProduct["name"]);
         }
         header("location:productPage.php?product=$addProduct");
     }
 
     if(isset($_GET["updateQuantity"])) {
         $updatedProduct = $_GET["product"];
-        //header("location:payOrder.php");
+        header("location:payOrder.php");
     }
-    //$_SESSION["cart"] = array();
+    $_SESSION["cart"] = array();
     var_dump($_SESSION["cart"]);
     $cartItems = $_SESSION["cart"];
 
@@ -50,8 +50,8 @@
                             $cartItemCount = sizeof($cartItems);
                             foreach($products as $product) {
                                 if(array_search($product->product_code, $cartItems)) {
-                                    //for($i = 0; $i <= $cartItemCount - 1; $i++) {
-                                        //if($cartItems[$i] != 0) {
+                                    for($i = 0; $i <= $cartItemCount - 1; $i++) {
+                                        if($cartItems[$i] != 0) {
                                             echo "<tr>";
                                             echo "<td><img class='tableProductImage' src='products/$product->category/$product->product_code.jpg' onerror=\"this.onerror=null; this.src='images/not_found.jpg'\"></td>";
                                             echo "<td><a href='productPage.php?product=$product->product_code'>$product->name</a></td>";
@@ -60,9 +60,9 @@
                                             echo "<td><a style='color:red;' href='product=" . $product->product_code . "'>Verwijder</a></td>";
                                             echo "</tr>";
                                             $totalPrice += $product->price;
-                                        //}
+                                        }
                                         //unset($product);
-                                    //}
+                                    }
                                 }
                             }
                         ?>

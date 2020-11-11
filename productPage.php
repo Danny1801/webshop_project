@@ -42,7 +42,7 @@
                             echo "<div style='color:green' class='productPagePrice'>€$product->price,-</div>";
                             echo "<div style='color:green' class='productPageStock'>Voorraad: $product->stock</div>";
                             echo "<form method='post' action='payOrder.php?addProduct=$product->product_code'>";
-                                echo "<input class='btn btn-success productPageButton' style='line-height:10%; font-size:1.2vw;' type='submit' value='Kopen'>"; // onclick='location.href=`payOrder.php?product=$product->product_code`;'
+                                echo "<input class='btn btn-success productPageButton' style='line-height:10%; font-size:1.2vw;' type='submit' value='Kopen' onclick='location.href=payOrder.php?product=$product->product_code'>";
                             echo "</form>";
                         }
                         echo "<div class='productPageDescription'>$product->description</div>";
