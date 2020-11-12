@@ -20,6 +20,10 @@
                 //header("location:payOrder.php");
                 $inArray = true;
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4eed6cf69696d917acd15fa6eb0d94f6cc4326da
         }
         
         if(!$inArray) {
