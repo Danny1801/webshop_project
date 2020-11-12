@@ -1,6 +1,8 @@
 <?php
-
-    session_start();
+    
+    if(!isset($_SESSION)) {
+        session_start();
+    }
 
     require_once("database.php");
 
@@ -33,12 +35,14 @@
         header("location:productPage.php?product=$addProduct");
     }
 
-    foreach($_SESSION["cart"] as $key => $value) {
-        if($_SESSION["cart"][$key][1] == 0) {
-            unset($_SESSION["cart"][$key]);
-            $_SESSION["cart"] = array_values($_SESSION["cart"]);
-            $key = 0;
-            header("location:payOrder.php");
+    if(!empty($_SESSION["cart"])) {
+        foreach($_SESSION["cart"] as $key => $value) {
+            if($_SESSION["cart"][$key][1] == 0) {
+                unset($_SESSION["cart"][$key]);
+                $_SESSION["cart"] = array_values($_SESSION["cart"]);
+                $key = 0;
+                header("location:payOrder.php");
+            }
         }
     }
 

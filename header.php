@@ -2,8 +2,8 @@
 
     if(!isset($_SESSION)) {
         session_start();
-        $_SESSION["cart"];
-        $_SESSION["login"];
+        $_SESSION["cart"] = array();
+        $_SESSION["login"] = '';
     }
 
     require_once("database.php");
@@ -44,7 +44,7 @@
                 <div class="cartLoginContainer">
                     <div>
                         <?php 
-                            if($_SESSION["login"] == 1){
+                            if(!empty($_SESSION["login"])) {
                                 echo "<a class='login' href='session_destroy.php'>Logout</a>";
                             }else{
                                echo "<a class='login'  href='login.php'>Login</a>"; 
@@ -57,8 +57,10 @@
                             <?php 
                                 $cartItemAmount = 0;
 
-                                foreach($_SESSION["cart"] as $key => $value) {
-                                    $cartItemAmount += $_SESSION["cart"][$key][1];
+                                if(!empty($_SESSION["cart"])) {
+                                    foreach($_SESSION["cart"] as $key => $value) {
+                                        $cartItemAmount += $_SESSION["cart"][$key][1];
+                                    }
                                 }
 
                                 echo $cartItemAmount;
