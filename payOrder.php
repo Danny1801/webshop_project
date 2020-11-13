@@ -22,10 +22,6 @@
                 //header("location:payOrder.php");
                 $inArray = true;
             }
-<<<<<<< HEAD
-=======
-
->>>>>>> 4eed6cf69696d917acd15fa6eb0d94f6cc4326da
         }
         
         if(!$inArray) {
@@ -121,6 +117,10 @@
                         echo "</table>";
                         echo "<h3 style='text-align:center;color:green;'>Totaal: €" . $totalPrice . ",-</h3>"; 
                     }
+
+                    echo "</br>";
+                    echo "<a href='orderPaid.php' style='color:white; width:20%; margin-left:40%;' class='btn btn-primary'>Afrekenen</a></div>";
+
                 ?>
             </div>
         <?php include("footer.php") ?>
