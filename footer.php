@@ -10,11 +10,11 @@
                 <div class="row text-center text-md-left mt-3 pb-3">
                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">Danio Components</h6>
-                        <p>The employees at Danio Components have 10 minutes of experience in selling pc hardware online. <br> We are selling a wide variety of products.</p>
+                        <p>De werknemers bij Danio Components hebben 10 minuten ervaring met het verkopen van computeronderdelen. <br> Wij hebben een groot assortiment met verschillende onderdelen.</p>
                     </div>
                     <hr class="w-100 clearfix d-md-none">
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Popular</h6>
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Populair</h6>
                         <p><a class="footerA" href="categoryPage.php?category=graphics_card">Graphics Cards</a></p>
                         <p><a class="footerA" href="categoryPage.php?category=processor">Processors</a></p>
                         <p><a class="footerA" href="categoryPage.php?category=ram">RAM</a></p>
@@ -22,7 +22,7 @@
                     </div>
                     <hr class="w-100 clearfix d-md-none">
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Other</h6>
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Andere</h6>
                         <p><a class="footerA" href="categoryPage.php?category=storage">Storage SSD/HDD</a></p>
                         <p><a class="footerA" href="categoryPage.php?category=power_supply">Power Supplies</a></p>
                         <p><a class="footerA" href="categoryPage.php?category=cpu_cooler">CPU Coolers</a></p>

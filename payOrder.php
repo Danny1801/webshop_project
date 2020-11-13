@@ -116,10 +116,9 @@
                         echo "</tbody>";
                         echo "</table>";
                         echo "<h3 style='text-align:center;color:green;'>Totaal: €" . $totalPrice . ",-</h3>"; 
+                        echo "</br>";
+                        echo "<a href='orderPaid.php' style='color:white; width:20%; margin-left:40%;' class='btn btn-primary'>Afrekenen</a></div>";
                     }
-
-                    echo "</br>";
-                    echo "<a href='orderPaid.php' style='color:white; width:20%; margin-left:40%;' class='btn btn-primary'>Afrekenen</a></div>";
 
                 ?>
             </div>
