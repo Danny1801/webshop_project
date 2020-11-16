@@ -13,9 +13,9 @@
 
     if(isset($_GET["addProduct"])) {
         $addProduct = $_GET["addProduct"];
+        $inArray = false;
 
         foreach($_SESSION["cart"] as $key => $value) {
-            $inArray = false;
             if(in_array($addProduct, $value)) {
                 echo $_SESSION["cart"][$key][1];
                 $_SESSION["cart"][$key][1] += 1;
@@ -73,6 +73,7 @@
 <html>
     <head>
         <title>Home - Danio Components</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
         <link rel="stylesheet" href="styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -81,7 +82,7 @@
             <div class="PageContentBg">
                 <?php 
                     if(!empty($cartItems)) {
-                        echo "<table class='table table-striped table-responsive'>";
+                        echo "<table class='table table-striped table-responsive text-center text-center'>";
                             echo "<thead>";
                                 echo "<th>Product</th>";
                                 echo "<th>Naam</th>";
@@ -113,7 +114,7 @@
                     }
                  
                     if(!empty($cartItems)) {
-                        echo "</tbody>";
+                            echo "</tbody>";
                         echo "</table>";
                         echo "<h3 style='text-align:center;color:green;'>Totaal: €" . $totalPrice . ",-</h3>"; 
                         echo "</br>";

@@ -8,6 +8,7 @@
         <title>Over Ons - Danio Components</title>
         <link rel="stylesheet" href="styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="images/favicon.ico">
     </head>
     <body>
         <?php include("header.php") ?>

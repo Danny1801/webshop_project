@@ -40,7 +40,11 @@
                 <hr>
                 <div class="row d-flex align-items-center">
                     <div class="col-md-7 col-lg-8">
-                        <p class="text-center text-md-left">© 2020 Copyright
+                        <p class="text-center text-md-left">© 
+                            <script type = "text/javascript">
+                                var dt = new Date();
+                                document.write(dt.getFullYear() + " Copyright"); 
+                            </script>
                             <a class="footerA" href="index.php"><strong>DanioComponents.com</strong></a>
                         </p>
                     </div>
