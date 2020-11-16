@@ -2,19 +2,10 @@
 
     require_once("database.php");
 
-    //$a = array("1234", "8765", "5678", "1112", "9090");
-    //shuffle($a);
-
     $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id ORDER BY RAND() LIMIT 1");
     $stmt->execute();
 
     $featuredProduct = $stmt->fetchObject();
-
-    //$stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id WHERE product_code=?");
-    //$stmt->bindValue(1, "0001"); // Zet hier de product_code van het product die je als featured wil hebben
-    //$stmt->execute();
-
-    //$featuredProduct = $stmt->fetchObject();
 
     $stmt = $con->prepare("SELECT * FROM categories LIMIT 8");
     $stmt->execute();
@@ -25,13 +16,14 @@
 <html>
     <head>
         <title>Home - Danio Components</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
         <link rel="stylesheet" href="styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <?php include("header.php") ?>
             <div class="PageContentBg">
-                <?php 
+                <?php                     
                     echo "<div class='featured indexFeatured-grid-container' onclick='location.href=`productPage.php?product=$featuredProduct->product_code`'>";
                         echo "<img class='featuredImage' src='products/$featuredProduct->category/$featuredProduct->product_code.jpg' onerror=\"this.onerror=null; this.src='images/not_found.jpg'\">";
                         echo "<div class='featuredInfoBg'>";

@@ -13,16 +13,17 @@
     if(isset($_GET["search"])) {
         if(isset($_GET["order"])) {
             if($_GET["order"] == "asc") {
-                $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id WHERE products.name LIKE ? ORDER BY products.price ASC");
+                $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id WHERE products.name LIKE ? OR products.product_code LIKE ? OR products.description LIKE ? ORDER BY products.price ASC");
             } elseif($_GET["order"] == "desc") {
-                $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id WHERE products.name LIKE ? ORDER BY products.price DESC");
+                $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id WHERE products.name LIKE ? OR products.product_code LIKE ? OR products.description LIKE ? ORDER BY products.price DESC");
             }
         } else {
-            $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id WHERE products.name LIKE ? OR products.product_code LIKE ?");
-            $stmt->bindValue(2, "%" . $_GET["search"] . "%");
+            $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id WHERE products.name LIKE ? OR products.product_code LIKE ? OR products.description LIKE ?");
         }
 
         $stmt->bindValue(1, "%" . $_GET["search"] . "%");
+        $stmt->bindValue(2, "%" . $_GET["search"] . "%");
+        $stmt->bindValue(3, "%" . $_GET["search"] . "%");
     } else {
         if(isset($_GET["order"])) {
             if($_GET["order"] == "asc") {
@@ -47,6 +48,7 @@
         <title><?php if(isset($_GET["search"])) { echo '"' . $_GET["search"] . '"'; } else { echo $category->display_name; } ?> - Danio Components</title>
         <link rel="stylesheet" href="styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="images/favicon.ico">
     </head>
     <body>
         <?php include("header.php") ?>

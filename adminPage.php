@@ -3,10 +3,10 @@
     require_once("database.php");
 
     if(isset($_GET["category"])) {
-        $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id WHERE categories.name=?");
+        $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id WHERE categories.name=? ORDER BY products.id ASC");
         $stmt->bindValue(1, $_GET["category"]);
     } else {
-        $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id");
+        $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id ORDER BY products.id ASC");
     }
 
     //if(!empty($_SESSION["user"])){
@@ -23,6 +23,7 @@
 <html>
     <head>
         <title>Admin - Danio Components</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
     </head>
     <body>
         <?php include("header.php") ?>
@@ -43,7 +44,7 @@
                         <input class="btn btn-secondary" type="button" onclick="location.href='adminPage.php?category=power_supply';" value="Power Supplies">
                         <input class="btn btn-secondary" type="button" onclick="location.href='adminPage.php?category=cpu_cooler';" value="CPU Coolers">
                         <input class="btn btn-secondary" type="button" onclick="location.href='adminPage.php?category=pc_case';" value="PC Cases"><br><br>
-                        <table class="table table-striped table-responsive">
+                        <table class="table table-striped table-responsive text-center">
                             <thead>
                                 <th>Id</th>
                                 <th>Foto</th>
@@ -79,7 +80,7 @@
                         </table>    
                     </div>
                     <div id="users" class="tab-pane fade">
-                        <table class="table table-striped table-responsive">
+                        <table class="table table-striped table-responsive text-center">
                             <thead>
                                 <th>Id</th>
                                 <th>Voornaam</th>

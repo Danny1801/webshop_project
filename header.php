@@ -2,8 +2,9 @@
 
     if(!isset($_SESSION)) {
         session_start();
-        $_SESSION["cart"] = array();
-        $_SESSION["login"] = '';
+        if(!isset($_SESSION["cart"])) {
+            $_SESSION["cart"] = array();
+        }
     }
 
     require_once("database.php");
@@ -29,7 +30,6 @@
 ?>
 <html>
     <head> 
-        <link rel="shortcut icon" href="">      
         <link rel="stylesheet" href="styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
