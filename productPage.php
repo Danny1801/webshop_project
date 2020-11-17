@@ -38,12 +38,12 @@
                         if(!$product->stock > 0) {
                             echo "<div style='color:grey' class='productPagePrice'>€$product->price,-</div>";
                             echo "<div style='color:salmon' class='productPageStock'>Voorraad: $product->stock</div>";
-                            echo "<input class='btn btn-secondary productPageButton' style='line-height:10%; font-size:1.2vw;' type='button' value='Uitverkocht'>";
+                            echo "<input class='btn btn-secondary productPageButton' type='button' value='Uitverkocht'>";
                         } else {
                             echo "<div style='color:green' class='productPagePrice'>€$product->price,-</div>";
                             echo "<div style='color:green' class='productPageStock'>Voorraad: $product->stock</div>";
                             echo "<form method='post' action='payOrder.php?addProduct=$product->product_code'>";
-                                echo "<input class='btn btn-success productPageButton' style='line-height:10%; font-size:1.2vw;' type='submit' value='Kopen' onclick='location.href=payOrder.php?product=$product->product_code'>";
+                                echo "<input class='btn btn-success productPageButton' type='submit' value='Kopen' onclick='location.href=payOrder.php?product=$product->product_code'>";
                             echo "</form>";
                         }
                         echo "<div class='productPageDescription'>$product->description</div>";

@@ -14,7 +14,7 @@
                     </div>
                     <hr class="w-100 clearfix d-md-none">
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Populair</h6>
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Populaire Categorieën</h6>
                         <p><a class="footerA" href="categoryPage.php?category=graphics_card">Graphics Cards</a></p>
                         <p><a class="footerA" href="categoryPage.php?category=processor">Processors</a></p>
                         <p><a class="footerA" href="categoryPage.php?category=ram">RAM</a></p>
@@ -22,7 +22,7 @@
                     </div>
                     <hr class="w-100 clearfix d-md-none">
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Andere</h6>
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Overige Categorieën</h6>
                         <p><a class="footerA" href="categoryPage.php?category=storage">Storage SSD/HDD</a></p>
                         <p><a class="footerA" href="categoryPage.php?category=power_supply">Power Supplies</a></p>
                         <p><a class="footerA" href="categoryPage.php?category=cpu_cooler">CPU Coolers</a></p>
