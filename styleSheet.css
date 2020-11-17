@@ -1,21 +1,33 @@
-body {
-    background-image: linear-gradient(white, white, rgb(209, 209, 209));
-}
-
-.footerA {
-    color:rgb(255, 208, 52);
-}
-
-.menubar {
-    margin-top: 15px;
-    height:60px;
-    clear:both;
-}
-
 /* PC */
 @media only screen {
     /* algemeen */
+    body {
+        background-image: linear-gradient(white, white, rgb(209, 209, 209));
+        background-image: url("images/background.png");
+        background-repeat: repeat;   
+        background-size: 1000px 1000px;
+    }
+
+    div {
+        user-select: none;
+    }
+
+    .headerBg {
+        background-color: white;
+        height:120px;
+    }
+
+    .footerA {
+        color:rgb(255, 208, 52);
+    }
+
+    .menubar {
+        height:60px;
+        clear:both;
+    }
+
     .TopPageContentBg {
+        background-color: whitesmoke;
         margin-left:15%;
         margin-top: 20px;
         margin-bottom: 10px;
@@ -27,6 +39,7 @@ body {
     }
     
     .PageContentBg {
+        background-color: whitesmoke;
         margin-left:15%;
         margin-top: 20px;
         margin-bottom: 100px;
@@ -37,7 +50,7 @@ body {
     }
 
     .product {
-        background-image: linear-gradient(whitesmoke, whitesmoke, whitesmoke, whitesmoke);
+        background-image: linear-gradient(white, white, white, white);
         height:100%;
         width:100%;
         border:solid silver 1px;
@@ -48,7 +61,7 @@ body {
     }
 
     .product:hover {
-        background-image: linear-gradient(whitesmoke, whitesmoke, whitesmoke, rgb(209, 209, 209));
+        background-image: linear-gradient(white, white, whitesmoke, whitesmoke);
     }
 
     .productName {
@@ -67,7 +80,6 @@ body {
         height:12vw;
         margin-left:auto;
         margin-right:auto;
-        border:solid silver 1px;
         border-radius: 5px;
     }
 
@@ -153,7 +165,7 @@ body {
     }
 
     .featured {
-        background-image: linear-gradient(whitesmoke, whitesmoke, whitesmoke, whitesmoke);
+        background-image: linear-gradient(white, white, white, white);
         width:100%;
         border:solid silver 1px;
         cursor: pointer;
@@ -161,7 +173,7 @@ body {
     }
 
     .featured:hover {
-        background-image: linear-gradient(whitesmoke, whitesmoke, whitesmoke, rgb(209, 209, 209));
+        background-image: linear-gradient(white, white, whitesmoke, whitesmoke);
     }
 
     .featuredName {
@@ -175,7 +187,6 @@ body {
     .featuredImage {
         width:100%;
         margin:15%;
-        border:solid silver 1px;
         border-radius: 5px;
         grid-column: 1;
         grid-row: 1 / span 3;
@@ -207,7 +218,7 @@ body {
     }
     
     .category {
-        background-image: linear-gradient(whitesmoke, whitesmoke, whitesmoke, whitesmoke);
+        background-image: linear-gradient(white, white, white, white);
         height:100%;
         width:100%;
         margin-right:5%;
@@ -218,7 +229,7 @@ body {
     }
 
     .category:hover {
-        background-image: linear-gradient(whitesmoke, whitesmoke, whitesmoke, rgb(209, 209, 209));
+        background-image: linear-gradient(white, white, whitesmoke, whitesmoke);
     }
 
     .categoryName {
@@ -231,7 +242,6 @@ body {
     .categoryImage {
         width:85%;
         margin-left:7.5%;
-        border:solid silver 1px;
         border-radius: 5px;
     }
 
@@ -270,11 +280,24 @@ body {
         color:darkslategray;
     }
 
+    .noResults {
+        font-size: 1.2vw;
+        color:darkslategray;
+        text-align:center;
+        color:darkred;
+    }
+
+    .toHomeBtn {
+        font-size:1vw;
+        width:20%;
+        margin-left:40%;
+    }
+
     /* productPage.php */
     .productPage-grid-container {
 		display:grid;
 		grid-template-columns:50% 50%;
-		grid-template-rows:65% 35%;
+		grid-template-rows:auto auto;
     }
 
     .productPageImage {
@@ -309,28 +332,30 @@ body {
         width:50%;
         font-size:2vw;
         text-align: center;
-        line-height: 15%;
+        line-height: 100%;
         color:green;
         float:left;
-        margin-top:1%;
+        margin-top:10%;
     }
 
     .productPageStock {
         width:50%;
         font-size:1vw;
         text-align: center;
-        line-height: 15%;
+        line-height: 100%;
         color:green;
         float:left;
-        margin-top:1%;
+        margin-top:12%;
         font-weight: bold;
     }
 
     .productPageButton {
         width:60%;
-        height:7%;
+        height:50%;
         margin-left: 20%;
-        margin-top:10%;
+        margin-top:5%;
+        line-height:150%; 
+        font-size:1.2vw;
     }
 
     .productPageDescription {
@@ -346,12 +371,12 @@ body {
 
     .specificationsTable {
         margin-top:10%;
+        margin-bottom:20%;
     }
 
     .relevantProducts {
         width:100%; 
         height:100%;
-        margin-bottom:15%;
         grid-column: 1 / span 2;
         grid-row: 2;
     }
@@ -368,11 +393,70 @@ body {
         width:75px;
     }
 
-    #thanks{
-        margin-left: 420px;
+    .adminCategoryBtn {
+        margin-bottom:10px;
     }
 
-    #orderpaid{
-        margin-left: 350px;
+    /* payOrder.php */
+    .payOrderButton {
+        width:60%;
+        margin-left:20%;
+        line-height:150%; 
+        font-size:1.2vw;
+        color:white; 
+        width:20%; 
+        margin-left:40%;
     }
+
+    .totalPrice {
+        text-align:center;
+        color:green;
+        font-size:1.5vw; 
+    }
+    
+    /* orderPaid.php */
+    .thanksLabel {
+        text-align: center;
+        font-size:1.5vw; 
+    }
+
+    .thanksDescLabel {
+        text-align: center;
+        font-size:1vw; 
+    }
+
+    .orderPaidTable {
+        margin-left: 20%;
+        width:60%;
+    }
+
+    /* contactPage.php */
+    .googleMapsImage {
+        border-radius:3vw;
+        border:grey 2px solid;
+        width:100%;
+    }
+
+    .contactPageDiv {
+        width:80%;
+        margin-left:10%;
+    }
+
+    .contactHeader {
+        text-align: center;
+        font-size:2vw; 
+    }
+
+    .contactSmallHeader {
+        text-align: center;
+        font-size:1.3vw; 
+    }
+
+    .contactDesc {
+        text-align: center;
+        font-size:1vw; 
+    }
+
+    /* accountPage.php */
+
 }

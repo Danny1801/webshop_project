@@ -72,7 +72,7 @@
 ?>
 <html>
     <head>
-        <title>Home - Danio Components</title>
+        <title>Winkelwagen - Danio Components</title>
         <link rel="shortcut icon" href="images/favicon.ico">
         <link rel="stylesheet" href="styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,7 +82,8 @@
             <div class="PageContentBg">
                 <?php 
                     if(!empty($cartItems)) {
-                        echo "<table class='table table-striped table-responsive text-center text-center'>";
+                        echo "<div class='table-responsive'>";
+                        echo "<table class='table table-striped text-center text-center'>";
                             echo "<thead>";
                                 echo "<th>Product</th>";
                                 echo "<th>Naam</th>";
@@ -96,7 +97,7 @@
                         echo "<a href='index.php' style='color:white; width:20%; margin-left:40%;' class='btn btn-primary'>Ga terug naar home</a></div>";
                     }
 
-                    $totalPrice = 0;
+                    $_SESSION["TotalPrice"] = 0;
                     $cartItemCount = sizeof($cartItems);
                     foreach($products as $product) {
                         for($i = 0; $i <= $cartItemCount - 1; $i++) {
@@ -108,7 +109,7 @@
                                 echo "<td><input type='number' id='$product->product_code' style='width:100px;' value='" . $cartItems[$i][1] . "'></td>";
                                 echo "<td><a style='color:red;' href='payOrder.php?removeProduct=" . $product->product_code . "'>Verwijder</a></td>";
                                 echo "</tr>";
-                                $totalPrice += ($product->price * $cartItems[$i][1]);
+                                $_SESSION["TotalPrice"] += ($product->price * $cartItems[$i][1]);
                             }
                         }
                     }
@@ -116,9 +117,10 @@
                     if(!empty($cartItems)) {
                             echo "</tbody>";
                         echo "</table>";
-                        echo "<h3 style='text-align:center;color:green;'>Totaal: €" . $totalPrice . ",-</h3>"; 
+                        echo "</div>";
+                        echo "<h3 class='totalPrice'>Totaal winkelwagen: €" . $_SESSION['TotalPrice'] . ",-</h3>"; 
                         echo "</br>";
-                        echo "<a href='orderPaid.php' style='color:white; width:20%; margin-left:40%;' class='btn btn-primary'>Afrekenen</a></div>";
+                        echo "<a href='orderToDB.php' class='btn btn-success payOrderButton'>Afrekenen</a></div>";
                     }
 
                 ?>

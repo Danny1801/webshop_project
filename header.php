@@ -39,14 +39,14 @@
     </head>
     <body>
         <div class="header">
-            <div>
+            <div class="headerBg">
                 <img src="images/logo.png" class="logo" alt="Cinque Terre" onclick="location.href='index.php'">
                 <div class="cartLoginContainer">
                     <div>
                         <?php 
-                            if(!empty($_SESSION["login"])) {
+                            if($_SESSION["login"]) {
                                 echo "<a class='login' href='session_destroy.php'>Logout</a>";
-                            }else{
+                            } else {
                                echo "<a class='login'  href='login.php'>Login</a>"; 
                             }
                         ?>
@@ -89,8 +89,17 @@
                     </div>
                 </div>
                 <li class="nav-item">
-                    <button onclick="window.location.href='contactPage.php'" class="btn btn-secondary">Over Ons</button>
+                    <button onclick="window.location.href='contactPage.php'" class="btn btn-secondary mr-3">Over Ons</button>
                 </li>
+                <?php
+
+                    if($_SESSION["login"]) {
+                        echo "<li class='nav-item'>";
+                            echo "<button onclick='window.location.href=`accountPage.php`' class='btn btn-light'>Mijn Account</button>";
+                        echo "</li>";
+                    }
+
+                ?>
                 </ul>
                 <form class="form-inline searchBar mx-auto" method="GET" action="index.php">
                     <input class="form-control mr-sm-2" type="search" placeholder="Zoek naar een product" name="searchTag">

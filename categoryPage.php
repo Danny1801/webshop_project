@@ -54,13 +54,13 @@
         <?php include("header.php") ?>
             <div class="TopPageContentBg">
                 <strong><p class="categoryPageName"><?php if(isset($_GET["search"])) { echo 'Zoekresultaten voor "' . $_GET["search"] . '":'; } else { echo $category->display_name; } ?></p></strong>
-                <p class="categoryPageDesc"><?php if(isset($_GET["search"])) { if(count($products) == 1) { echo "Er is " . count($products) . " resultaat gevonden. "; } else { echo "Er zijn " . count($products) . " resultaten gevonden."; } echo " Niet wat u zocht? Kijk eens naar de categorieen op de <a href='index.php'>homepagina</a>."; } else { echo $category->description; } ?></p>
+                <p class="categoryPageDesc"><?php if(isset($_GET["search"])) { if(count($products) == 1) { echo "Er is " . count($products) . " resultaat gevonden. "; } else { echo "Er zijn " . count($products) . " resultaten gevonden."; } echo " Niet wat u zocht? Kijk eens naar de categorieën op de <a href='index.php'>homepagina</a>."; } else { echo $category->description; } ?></p>
             </div>
             <div class="PageContentBg">
                 <?php 
                     if(empty($products)) {
-                        echo "<div><h4 style='text-align:center;color:darkred;'>Geen producten gevonden!</h4><br>";
-                        echo "<a href='index.php' style='color:white; width:20%; margin-left:40%;' class='btn btn-primary'>Ga terug naar home</a></div>";
+                        echo "<div><h4 class='noResults'>Geen producten gevonden!</h4><br>";
+                        echo "<a href='index.php' class='btn btn-primary toHomeBtn'>Ga terug naar home</a></div>";
                     } else {
                         if(count($products) > 1) {
                             if(isset($_GET["category"])) {
