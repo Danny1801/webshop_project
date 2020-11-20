@@ -5,6 +5,9 @@
         if(!isset($_SESSION["cart"])) {
             $_SESSION["cart"] = array();
         }
+        if(!isset($_SESSION["login"])) {
+            $_SESSION["login"] = "";
+        }
     }
 
     require_once("database.php");
@@ -21,10 +24,6 @@
         } else {
             echo "<script type='text/javascript'>alert('Zoekterm `" . $searchTag . "` is te kort. Voer minimaal 3 karakters in.'); window.location.href='index.php'</script>";
         }
-    }
-
-    if(isset($_SESSION["user"]->is_admin) && $_SESSION["user"]->is_admin == 1){
-        echo "<a class='m-5 btn btn-warning' style='position:absolute;' type='button' href='adminPage.php'>Admin Page</a>";
     }
     
 ?>
@@ -95,10 +94,15 @@
 
                     if($_SESSION["login"]) {
                         echo "<li class='nav-item'>";
-                            echo "<button onclick='window.location.href=`accountPage.php`' class='btn btn-light'>Mijn Account</button>";
+                            echo "<button onclick='window.location.href=`accountPage.php`' class='mr-3 btn btn-light'>Mijn Account</button>";
                         echo "</li>";
                     }
 
+                    if(isset($_SESSION["user"]->is_admin) && $_SESSION["user"]->is_admin == 1){
+                        echo "<li class='nav-item'>";
+                            echo "<a class='btn btn-warning' type='button' href='adminPage.php'>Admin Page</a>";
+                        echo "</li>";
+                    }
                 ?>
                 </ul>
                 <form class="form-inline searchBar mx-auto" method="GET" action="index.php">
