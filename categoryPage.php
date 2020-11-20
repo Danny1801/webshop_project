@@ -54,7 +54,7 @@
         <?php include("header.php") ?>
             <div class="TopPageContentBg">
                 <strong><p class="categoryPageName"><?php if(isset($_GET["search"])) { echo 'Zoekresultaten voor "' . $_GET["search"] . '":'; } else { echo $category->display_name; } ?></p></strong>
-                <p class="categoryPageDesc"><?php if(isset($_GET["search"])) { if(count($products) == 1) { echo "Er is " . count($products) . " resultaat gevonden. "; } else { echo "Er zijn " . count($products) . " resultaten gevonden."; } echo " Niet wat u zocht? Kijk eens naar de categorieën op de <a href='index.php'>homepagina</a>."; } else { echo $category->description; } ?></p>
+                <p class="categoryPageDesc"><?php if(isset($_GET["search"])) { if(count($products) == 1) { echo "Er is " . count($products) . " resultaat gevonden. "; } else { echo "Er zijn " . count($products) . " resultaten gevonden."; } echo " Niet wat u zocht? Kijk eens bij de categorieën op de <a href='index.php'>homepagina</a>."; } else { echo $category->description; } ?></p>
             </div>
             <div class="PageContentBg">
                 <?php 

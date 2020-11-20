@@ -113,7 +113,7 @@
                             }
                         }
                     }
-                 
+
                     if(!empty($cartItems)) {
                             echo "</tbody>";
                         echo "</table>";
