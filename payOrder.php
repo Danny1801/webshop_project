@@ -92,7 +92,7 @@
                 <?php 
                     if(!empty($cartItems)) {
                         echo "<div class='table-responsive'>";
-                        echo "<table class='table table-striped text-center text-center'>";
+                        echo "<table class='table-bordered table table-striped text-center text-center'>";
                             echo "<thead>";
                                 echo "<th>Product</th>";
                                 echo "<th>Naam</th>";

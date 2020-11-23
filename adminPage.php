@@ -42,7 +42,7 @@
                         <input class="btn btn-secondary adminCategoryBtn" type="button" onclick="location.href='adminPage.php?category=power_supply';" value="Power Supplies">
                         <input class="btn btn-secondary adminCategoryBtn" type="button" onclick="location.href='adminPage.php?category=cpu_cooler';" value="CPU Coolers">
                         <input class="btn btn-secondary adminCategoryBtn" type="button" onclick="location.href='adminPage.php?category=pc_case';" value="PC Cases"><br>
-                        <table class="table table-striped table-responsive text-center">
+                        <table class="table-bordered table table-striped table-responsive text-center">
                             <thead class="table-light">
                                 <th>Id</th>
                                 <th>Foto</th>
@@ -78,7 +78,7 @@
                         </table>    
                     </div>
                     <div id="users" class="tab-pane fade table-responsive">
-                        <table class="table table-striped text-center">
+                        <table class="table-bordered table table-striped text-center">
                             <thead class="table-light">
                                 <th>Id</th>
                                 <th>Voornaam</th>

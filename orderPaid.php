@@ -27,7 +27,7 @@
                     <?php
                         if(!empty($_SESSION["cart"]))
                         {
-                            echo "<table class='table table-striped'>";
+                            echo "<table class='table-bordered table table-striped'>";
                                     echo "<thead>";
                                         echo "<th>Product</th>";
                                         echo "<th>Naam</th>";

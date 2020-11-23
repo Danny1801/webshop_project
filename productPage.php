@@ -48,7 +48,7 @@
                         }
                         echo "<div class='productPageDescription'>$product->description</div>";
                         echo "<div class='specificationsTable'>";
-                            echo "<table class='table table-striped' style='font-size:0.8vw;line-height:0.8vw;'>";
+                            echo "<table class='table-bordered table table-striped' style='font-size:0.8vw;line-height:0.8vw;'>";
                                 echo "<thead class='table-light'>";
                                     echo "<th>Specificatie</th>";
                                     echo "<th>Waarde</th>";
