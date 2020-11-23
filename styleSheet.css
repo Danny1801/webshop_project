@@ -9,11 +9,11 @@
     }
 
     div {
-        user-select: none;
+        user-select: text;
     }
 
     .headerBg {
-        background-image: linear-gradient(white, whitesmoke, whitesmoke, whitesmoke, whitesmoke, lightgrey);
+        background-image: linear-gradient(white, whitesmoke, whitesmoke, whitesmoke, whitesmoke, whitesmoke, whitesmoke, lightgrey);
         height:120px;
     }
 
