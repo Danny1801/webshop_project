@@ -9,15 +9,17 @@
     $user = $stmt->fetchObject();
 
     if($_POST) {
-        if(!isset($_POST["is_admin"])) {
+        if(isset($_POST["is_admin"])) {
             $_POST["is_admin"] = 1;
+        } else {
+            $_POST["is_admin"] = 0;
         }
         $stmt = $con->prepare("UPDATE users SET firstname=?, lastname=?, `address`=?, email=?, phone=?, is_admin=? WHERE id=?");
-		$stmt->bindValue(1, $_POST["firstname"]);
-		$stmt->bindValue(2, $_POST["lastname"]);
-		$stmt->bindValue(3, $_POST["address"]);
-		$stmt->bindValue(4, $_POST["email"]);
-		$stmt->bindValue(5, $_POST["phone"]);
+		$stmt->bindValue(1, htmlspecialchars($_POST["firstname"]));
+		$stmt->bindValue(2, htmlspecialchars($_POST["lastname"]));
+		$stmt->bindValue(3, htmlspecialchars($_POST["address"]));
+		$stmt->bindValue(4, htmlspecialchars($_POST["email"]));
+		$stmt->bindValue(5, htmlspecialchars($_POST["phone"]));
 		$stmt->bindValue(6, $_POST["is_admin"]);
 		$stmt->bindValue(7, $_GET["user_id"]);
 
@@ -64,7 +66,7 @@
                             if($_GET["user_id"] != $_SESSION["login"]) {
                                 echo "<tr>";
                                 echo "<td>Is Admin</td>";
-                                echo "<td><input type='number' name='is_admin' value='<?php echo $user->is_admin ?>'></td>";
+                                echo "<td><input type='checkbox' name='is_admin' checked='true'</td>";
                                 echo "</tr>";
                             }
                         ?>

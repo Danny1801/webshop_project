@@ -10,12 +10,12 @@
     if($_POST) {
         if($_POST["category"] != "-" && trim($_POST["product_code"]) && trim($_POST["name"]) && trim($_POST["description"]) && trim($_POST["specifications"]) && trim($_POST["price"]) && trim($_POST["stock"])) {
             $stmt = $con->prepare("INSERT INTO products (product_code, `name`, `description`, specifications, price, stock, category_id) VALUES(?, ?, ? ,? ,?, ?, ?)");
-            $stmt->bindValue(1, $_POST["product_code"]);
-            $stmt->bindValue(2, $_POST["name"]);
-            $stmt->bindValue(3, $_POST["description"]);
-            $stmt->bindValue(4, $_POST["specifications"]);
-            $stmt->bindValue(5, $_POST["price"]);
-            $stmt->bindValue(6, $_POST["stock"]);
+            $stmt->bindValue(1, htmlspecialchars($_POST["product_code"]));
+            $stmt->bindValue(2, htmlspecialchars($_POST["name"]));
+            $stmt->bindValue(3, htmlspecialchars($_POST["description"]));
+            $stmt->bindValue(4, htmlspecialchars($_POST["specifications"]));
+            $stmt->bindValue(5, htmlspecialchars($_POST["price"]));
+            $stmt->bindValue(6, htmlspecialchars($_POST["stock"]));
             $stmt->bindValue(7, $_POST["category"]);
 
             $stmt->execute();
