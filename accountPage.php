@@ -23,11 +23,11 @@
             //$hashedPassword = hash('sha256', $password);
 
             $stmt = $con->prepare("UPDATE users SET firstname=?, lastname=?, `address`=?, email=?, phone=? WHERE id=?");
-            $stmt->bindValue(1, $_POST["firstname"]);
-            $stmt->bindValue(2, $_POST["lastname"]);
-            $stmt->bindValue(3, $_POST["address"]);
-            $stmt->bindValue(4, $_POST["email"]);
-            $stmt->bindValue(5, $_POST["phone"]);
+            $stmt->bindValue(1, htmlspecialchars($_POST["firstname"]));
+            $stmt->bindValue(2, htmlspecialchars($_POST["lastname"]));
+            $stmt->bindValue(3, htmlspecialchars($_POST["address"]));
+            $stmt->bindValue(4, htmlspecialchars($_POST["email"]));
+            $stmt->bindValue(5, htmlspecialchars($_POST["phone"]));
             $stmt->bindValue(6, $_SESSION["user"]->id);
             //$stmt->bindValue(6, $hashedPassword);
 
