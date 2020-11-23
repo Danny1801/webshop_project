@@ -18,7 +18,7 @@
     $headCategories = $stmt->fetchAll(5);
 
     if(isset($_GET["searchTag"])) {
-        $searchTag = $_GET["searchTag"];
+        $searchTag = strip_tags($_GET["searchTag"]);
         if(strlen($searchTag) >= 3) {
             header("location:categoryPage.php?search=$searchTag");
         } else {
@@ -94,7 +94,7 @@
 
                     if($_SESSION["login"]) {
                         echo "<li class='nav-item'>";
-                            echo "<button onclick='window.location.href=`accountPage.php`' class='mr-3 btn btn-primary'>Mijn Account</button>";
+                            echo "<button onclick='window.location.href=`accountPage.php`' class='mr-3 btn btn-success'>Mijn Account</button>";
                         echo "</li>";
                     }
 
