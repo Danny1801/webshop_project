@@ -82,7 +82,7 @@
                                     if(!$product->stock > 0) {
                                         echo "<div style='color:grey' class='productPrice'>€$product->price,-</div>";
                                         echo "<div style='color:salmon' class='productStock'>Voorraad: $product->stock</div>";
-                                        echo "<button class='btn btn-secondary productButton' style='line-height:100%; font-size:1vw;'>Kopen</button>";
+                                        echo "<button class='btn btn-secondary productButton' style='line-height:100%; font-size:1vw;'>Uitverkocht</button>";
                                     } else {
                                         echo "<div style='color:green' class='productPrice'>€$product->price,-</div>";
                                         echo "<div style='color:green' class='productStock'>Voorraad: $product->stock</div>";

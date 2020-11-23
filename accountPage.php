@@ -7,7 +7,7 @@
     require_once("checkLogin.php");
     require_once("database.php");
 
-    $stmt = $con->prepare("SELECT * FROM orders WHERE `user_id`=? ORDER BY `date` ASC");
+    $stmt = $con->prepare("SELECT * FROM orders WHERE `user_id`=? ORDER BY `date` DESC");
     $stmt->bindValue(1, $_SESSION["user"]->id);
     $stmt->execute();
 
@@ -58,7 +58,7 @@
                 <div class="accountPage-grid-container">
                     <form method="POST">
                         <div class="grid-item table-responsive">
-                            <table class="table table-striped editAccountTable">
+                            <table class="table-bordered table table-striped editAccountTable">
                                 <thead>
                                     <th>Gegeven</th>
                                     <th>Waarde</th>
@@ -94,9 +94,9 @@
                         <?php 
                             if(!empty($orders)) {
                                 echo "<div class='table-responsive'>";
-                                echo "<table class='table table-striped text-center text-center'>";
+                                echo "<table class='table-bordered table table-striped text-center text-center'>";
                                     echo "<thead>";
-                                        echo "<th>Order Nr.</th>";
+                                        echo "<th>Nr.</th>";
                                         echo "<th>Prijs</th>";
                                         echo "<th>Code, hoeveelheid</th>";
                                         echo "<th>Besteldatum</th>";
@@ -105,7 +105,7 @@
                             }
 
                             $orderCount = count($orders);
-                            $i = 1;
+                            $i = $orderCount;
                             foreach($orders as $order) {
                                 echo "<tr>";
                                 echo "<td>" . $i . "</td>";
@@ -113,7 +113,7 @@
                                 echo "<td>" . str_replace(']', '', str_replace('[', '', $order->product_codes)) . "</td>";
                                 echo "<td>" . $order->date . "</td>";
                                 echo "</tr>";
-                                $i++;
+                                $i--;
                             }
                         
                             if(!empty($orders)) {
