@@ -4,6 +4,7 @@
         session_start();
     }
 
+    require_once("checkLogin.php");
     require_once("database.php");
 
     $stmt = $con->prepare("SELECT * FROM orders WHERE `user_id`=? ORDER BY `date` ASC");
