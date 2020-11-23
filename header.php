@@ -94,7 +94,7 @@
 
                     if($_SESSION["login"]) {
                         echo "<li class='nav-item'>";
-                            echo "<button onclick='window.location.href=`accountPage.php`' class='mr-3 btn btn-light'>Mijn Account</button>";
+                            echo "<button onclick='window.location.href=`accountPage.php`' class='mr-3 btn btn-primary'>Mijn Account</button>";
                         echo "</li>";
                     }
 
