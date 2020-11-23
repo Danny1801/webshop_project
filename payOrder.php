@@ -67,6 +67,15 @@
         }
     }
 
+    if(isset($_GET["stockErr"])) {
+        foreach($products as $product) {
+            if($product->product_code == $_GET["stockErr"]) {
+                $errProduct = $product->name;
+                echo "<script type='text/javascript'>alert('Product `" . trim($errProduct) . "` heeft nog maar een voorraad van " . $product->stock . ". Verander de hoeveelheid van dit product om uw bestelling te kunnen plaatsen.');</script>";
+            }
+        }
+    }
+
     $cartItems = $_SESSION["cart"];
 
 ?>
