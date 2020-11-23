@@ -19,8 +19,8 @@
             } else {
 
                 $statement = $con->prepare("SELECT * FROM users WHERE email=? AND password_hash=?");
-                $statement->bindValue(1, $email);
-                $statement->bindValue(2, $hashedPassword);
+                $statement->bindValue(1, strip_tags($email));
+                $statement->bindValue(2, strip_tags($hashedPassword));
                 $statement->execute();
             
                 $result = $statement->fetchObject();
