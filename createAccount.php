@@ -52,11 +52,11 @@
                 <div id="formContent">
                     <form method="POST">
                         <h3>Account aanmaken</h3><br>
-                        <input type="text" id="firstname" name="firstname" placeholder="Voornaam"></br></br>
-                        <input type="text" id="lastname" name="lastname" placeholder="Achternaam"></br></br>
-                        <input type="text" id="address" name="address" placeholder="Adres"></br></br>
-                        <input type="text" id="email" name="email" placeholder="Email"></br></br>
-                        <input type="number" id="phone" name="phone" placeholder="Telefoon"></br></br>
+                        <input type="text" id="firstname" name="firstname" maxlength="45" placeholder="Voornaam"></br></br>
+                        <input type="text" id="lastname" name="lastname" maxlength="45" placeholder="Achternaam"></br></br>
+                        <input type="text" id="address" name="address" maxlength="90" placeholder="Adres"></br></br>
+                        <input type="text" id="email" name="email" maxlength="45" placeholder="Email"></br></br>
+                        <input type="number" id="phone" name="phone" maxlength="11" placeholder="Telefoon"></br></br>
                         <input type="password" id="password" name="password" placeholder="Wachtwoord"></br></br>
                         <input type="submit" class="btn btn-success" value="Aanmaken"></br></br>
                         <h5><a href="login.php" class="">Terug naar inloggen</a></h5>

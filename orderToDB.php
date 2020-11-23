@@ -23,13 +23,30 @@
     $cartItems = $_SESSION["cart"];
     $cartItemCount = sizeof($cartItems);
 
+    $continue = false;
+
     for($i = 0; $i <= $cartItemCount - 1; $i++) {
-        $stmt = $con->prepare("UPDATE products SET stock=stock-? WHERE product_code=?");
-        $stmt->bindValue(1, $cartItems[$i][1]);
-        $stmt->bindValue(2, $cartItems[$i][0]);
+        $stmt = $con->prepare("SELECT stock FROM products WHERE product_code=?");
+        $stmt->bindValue(1, $cartItems[$i][0]);
         $stmt->execute();
+
+        $stockObject = $stmt->fetchObject();
+        $stock = get_object_vars($stock);
+        
+        if(($stock - $cartItems[$i][1]) >= -1) {
+            $stmt = $con->prepare("UPDATE products SET stock=stock-? WHERE product_code=?");
+            $stmt->bindValue(1, $cartItems[$i][1]);
+            $stmt->bindValue(2, $cartItems[$i][0]);
+            $stmt->execute();
+            $continue = true;
+        } else {
+            $product = $cartItems[$i][0];
+            header("location:payOrder.php?stockErr=$product");
+        }
     }
 
-    header("location:orderPaid.php");
+    if($continue) {
+        header("location:orderPaid.php");
+    }
 
 ?>

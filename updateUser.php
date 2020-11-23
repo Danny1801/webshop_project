@@ -48,19 +48,19 @@
                         </tr>
                         <tr>
                             <td>Lastname</td>
-                            <td><input type="text" name="lastname" maxlength="60" size="50" value="<?php echo $user->lastname ?>"></td>
+                            <td><input type="text" name="lastname" maxlength="45" value="<?php echo $user->lastname ?>"></td>
                         </tr>
                         <tr>
                             <td>Address</td>
-                            <td><input type="text" name="address" maxlength="60" size="50" value="<?php echo $user->address?>"></td>
+                            <td><input type="text" name="address" maxlength="90" value="<?php echo $user->address?>"></td>
                         </tr>
                         <tr>
                             <td>Email</td>
-                            <td><input type="text" name="email" maxlength="60" size="50" value="<?php echo $user->email ?>"></td>
+                            <td><input type="text" name="email" maxlength="45" value="<?php echo $user->email ?>"></td>
                         </tr>
                         <tr>
                             <td>Phone</td>
-                            <td><input type="number" name="phone" value="<?php echo $user->phone ?>"></td>
+                            <td><input type="number" name="phone" maxlength="11" value="<?php echo $user->phone ?>"></td>
                         </tr>
                         <?php
                             if($_GET["user_id"] != $_SESSION["login"]) {

@@ -52,71 +52,77 @@
     </head>
     <body>
         <?php include("header.php"); ?>
-            <div class="PageContentBg accountPage-grid-container">
-                <h3>Welkom op je accountpagina, <?php echo $_SESSION["user"]->firstname . " " . $_SESSION["user"]->lastname ?>!</h3><br><br>
-                <?php if($_POST) { echo "<h5 class='text-success'>Wijzigingen zijn opgeslagen!</h5>"; } ?>
-                <form method="POST">
-                    <div class="grid-item table-responsive">
-                        <table class="table table-striped editAccountTable">
-                            <tbody>
-                                <tr>
-                                    <td>Voornaam</td>
-                                    <td><input type="text" name="firstname" maxlength="45" value="<?php echo $_SESSION["user"]->firstname ?>"></td>
-                                </tr>
-                                <tr>
-                                    <td>Achternaam</td>
-                                    <td><input type="text" name="lastname" maxlength="45" value="<?php echo $_SESSION["user"]->lastname ?>"></td>
-                                </tr>
-                                <tr>
-                                    <td>Adres</td>
-                                    <td><input type="text" name="address" maxlength="45" value="<?php echo $_SESSION["user"]->address ?>"></td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td><input type="text" name="email" maxlength="45" value="<?php echo $_SESSION["user"]->email ?>"></td>
-                                </tr>
-                                <tr>
-                                    <td>Telefoon</td>
-                                    <td><input type="number" name="phone" value="<?php echo $_SESSION["user"]->phone ?>"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <input class=" btn btn-success" type="submit" value="Wijzigingen Opslaan">
-                </form>
-                <div class="grid-item">
-                    <?php 
-                        if(!empty($orders)) {
-                            echo "<div class='table-responsive'>";
-                            echo "<table class='table table-striped text-center text-center'>";
-                                echo "<thead>";
-                                    echo "<th>Order Nr.</th>";
-                                    echo "<th>Prijs</th>";
-                                    echo "<th>[code, hoeveelheid]</th>";
-                                    echo "<th>Besteldatum</th>";
-                                echo "</thead>";
-                                echo "<tbody>";
-                        }
+            <div class="PageContentBg">
+                <h4>Welkom op je accountpagina, <?php echo $_SESSION["user"]->firstname . " " . $_SESSION["user"]->lastname ?>! Hier vind je jouw accountgegevens en recente bestellingen.</h4><br>
+                <div class="accountPage-grid-container">
+                    <form method="POST">
+                        <div class="grid-item table-responsive">
+                            <table class="table table-striped editAccountTable">
+                                <thead>
+                                    <th>Gegeven</th>
+                                    <th>Waarde</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Voornaam</td>
+                                        <td><input type="text" name="firstname" maxlength="45" value="<?php echo $_SESSION["user"]->firstname ?>"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Achternaam</td>
+                                        <td><input type="text" name="lastname" maxlength="45" value="<?php echo $_SESSION["user"]->lastname ?>"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Adres</td>
+                                        <td><input type="text" name="address" maxlength="45" value="<?php echo $_SESSION["user"]->address ?>"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td><input type="text" name="email" maxlength="45" value="<?php echo $_SESSION["user"]->email ?>"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Telefoon</td>
+                                        <td><input type="number" name="phone" value="<?php echo $_SESSION["user"]->phone ?>"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <input class=" btn btn-success" type="submit" value="Wijzigingen Opslaan">
+                        <?php if($_POST) { echo "<br><br><h5 class='text-success'>Wijzigingen zijn opgeslagen!</h5>"; } ?>
+                    </form>   
+                    <div class="grid-item">
+                        <?php 
+                            if(!empty($orders)) {
+                                echo "<div class='table-responsive'>";
+                                echo "<table class='table table-striped text-center text-center'>";
+                                    echo "<thead>";
+                                        echo "<th>Order Nr.</th>";
+                                        echo "<th>Prijs</th>";
+                                        echo "<th>Code, hoeveelheid</th>";
+                                        echo "<th>Besteldatum</th>";
+                                    echo "</thead>";
+                                    echo "<tbody>";
+                            }
 
-                        $orderCount = count($orders);
-                        $i = 1;
-                        foreach($orders as $order) {
-                            echo "<tr>";
-                            echo "<td>" . $i . "</td>";
-                            echo "<td>€" . $order->total_price . "</td>";
-                            echo "<td>" . $order->product_codes . "</td>";
-                            echo "<td>" . $order->date . "</td>";
-                            echo "</tr>";
-                            $i++;
-                        }
-                    
-                        if(!empty($orders)) {
-                                echo "</tbody>";
-                            echo "</table>";
-                            echo "</div>";
-                        }
+                            $orderCount = count($orders);
+                            $i = 1;
+                            foreach($orders as $order) {
+                                echo "<tr>";
+                                echo "<td>" . $i . "</td>";
+                                echo "<td>€" . $order->total_price . "</td>";
+                                echo "<td>" . str_replace(']', '', str_replace('[', '', $order->product_codes)) . "</td>";
+                                echo "<td>" . $order->date . "</td>";
+                                echo "</tr>";
+                                $i++;
+                            }
+                        
+                            if(!empty($orders)) {
+                                    echo "</tbody>";
+                                echo "</table>";
+                                echo "</div>";
+                            }
 
-                    ?>
+                        ?>
+                    </div> 
                 </div> 
             </div> 
         <?php include("footer.php"); ?>
