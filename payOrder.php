@@ -33,7 +33,7 @@
 
     if(!empty($_SESSION["cart"])) {
         foreach($_SESSION["cart"] as $key => $value) {
-            if($_SESSION["cart"][$key][1] == 0) {
+            if($_SESSION["cart"][$key][1] <= 0) {
                 unset($_SESSION["cart"][$key]);
                 $_SESSION["cart"] = array_values($_SESSION["cart"]);
                 $key = 0;

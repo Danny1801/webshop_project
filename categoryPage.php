@@ -79,7 +79,7 @@
                                 echo "<div class='product' onclick='location.href=`productPage.php?product=$product->product_code`'>";
                                     echo "<div class='productName'>$product->name</div>";
                                     echo "<img class='productImage' src='products/$product->category/$product->product_code.jpg' onerror=\"this.onerror=null; this.src='images/not_found.jpg'\">";
-                                    if(!$product->stock > 0) {
+                                    if($product->stock <= 0) {
                                         echo "<div style='color:grey' class='productPrice'>€$product->price,-</div>";
                                         echo "<div style='color:salmon' class='productStock'>Voorraad: $product->stock</div>";
                                         echo "<button class='btn btn-secondary productButton' style='line-height:100%; font-size:1vw;'>Uitverkocht</button>";

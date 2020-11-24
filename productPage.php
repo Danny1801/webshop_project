@@ -35,7 +35,7 @@
                     echo "<img class='productPageImage grid-item' src='products/$product->category/$product->product_code.jpg' onerror=\"this.onerror=null; this.src='images/not_found.jpg'\">";
                     echo "<div class='productInfoBg grid-item'>";
                         echo "<div class='productPageName'>$product->name</div>";
-                        if(!$product->stock > 0) {
+                        if($product->stock <= 0) {
                             echo "<div style='color:grey' class='productPagePrice'>€$product->price,-</div>";
                             echo "<div style='color:salmon' class='productPageStock'>Voorraad: $product->stock</div>";
                             echo "<input class='btn btn-secondary productPageButton' type='button' value='Uitverkocht'>";
@@ -79,7 +79,7 @@
                                     if(!$altProduct->stock > 0) {
                                         echo "<div style='color:grey' class='productPrice'>€$altProduct->price,-</div>";
                                         echo "<div style='color:salmon' class='productStock'>Voorraad: $altProduct->stock</div>";
-                                        echo "<button class='btn btn-secondary productButton' style='line-height:100%; font-size:1vw;'>Kopen</button>";
+                                        echo "<button class='btn btn-secondary productButton' style='line-height:100%; font-size:1vw;'>Uitverkocht</button>";
                                     } else {
                                         echo "<div style='color:green' class='productPrice'>€$altProduct->price,-</div>";
                                         echo "<div style='color:green' class='productStock'>Voorraad: $altProduct->stock</div>";
