@@ -13,9 +13,9 @@
             $stmt->bindValue(1, htmlspecialchars($_POST["product_code"]));
             $stmt->bindValue(2, htmlspecialchars($_POST["name"]));
             $stmt->bindValue(3, htmlspecialchars($_POST["description"]));
-            $stmt->bindValue(4, htmlspecialchars($_POST["specifications"]));
-            $stmt->bindValue(5, htmlspecialchars($_POST["price"]));
-            $stmt->bindValue(6, htmlspecialchars($_POST["stock"]));
+            $stmt->bindValue(4, strip_tags($_POST["specifications"]));
+            $stmt->bindValue(5, $_POST["price"]);
+            $stmt->bindValue(6, $_POST["stock"]);
             $stmt->bindValue(7, $_POST["category"]);
 
             $stmt->execute();

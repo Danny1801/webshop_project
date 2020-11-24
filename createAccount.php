@@ -16,8 +16,8 @@
             $stmt->bindValue(2, htmlspecialchars($_POST["lastname"]));
             $stmt->bindValue(3, htmlspecialchars($_POST["address"]));
             $stmt->bindValue(4, htmlspecialchars($_POST["email"]));
-            $stmt->bindValue(5, htmlspecialchars($_POST["phone"]));
-            $stmt->bindValue(6, $hashedPassword);
+            $stmt->bindValue(5, strip_tags($_POST["phone"]));
+            $stmt->bindValue(6, strip_tags($hashedPassword));
             $stmt->bindValue(7, 0);
 
             $stmt->execute();
