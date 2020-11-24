@@ -12,14 +12,6 @@
         $login = "-";
     }
 
-    $stmt = $con->prepare("INSERT INTO orders (`user_id`, product_codes, total_price, `date`) VALUES(? ,?, ?, ?)");
-    $stmt->bindValue(1, $login);
-    $stmt->bindValue(2, json_encode($_SESSION["cart"]));
-    $stmt->bindValue(3, $_SESSION["TotalPrice"]);
-    $stmt->bindValue(4, date('Y-m-d h:i:s'));
-
-    $stmt->execute();
-
     $cartItems = $_SESSION["cart"];
     $cartItemCount = sizeof($cartItems);
 
@@ -31,13 +23,23 @@
         $stmt->execute();
 
         $stockObject = $stmt->fetchObject();
-        $stock = get_object_vars($stock);
-        
-        if(($stock - $cartItems[$i][1]) >= -1) {
+        $stock = intval($stockObject->stock);
+
+        if(($stock - $cartItems[$i][1]) >= 0) {
             $stmt = $con->prepare("UPDATE products SET stock=stock-? WHERE product_code=?");
             $stmt->bindValue(1, $cartItems[$i][1]);
             $stmt->bindValue(2, $cartItems[$i][0]);
+
             $stmt->execute();
+
+            $stmt = $con->prepare("INSERT INTO orders (`user_id`, product_codes, total_price, `date`) VALUES(? ,?, ?, ?)");
+            $stmt->bindValue(1, $login);
+            $stmt->bindValue(2, json_encode($_SESSION["cart"]));
+            $stmt->bindValue(3, $_SESSION["TotalPrice"]);
+            $stmt->bindValue(4, date('Y-m-d G:i:s'));
+
+            $stmt->execute();
+
             $continue = true;
         } else {
             $product = $cartItems[$i][0];
