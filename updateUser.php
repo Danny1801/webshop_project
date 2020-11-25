@@ -65,10 +65,16 @@
                         <?php
                             if($_GET["user_id"] != $_SESSION["login"]) {
                                 echo "<tr>";
-                                echo "<td>Is Admin</td>";
-                                echo "<td><input type='checkbox' name='is_admin' checked='true'</td>";
-                                echo "</tr>";
+                                echo "<td>Is Admin</td>";    
                             }
+
+                            if($user->is_admin == 1) {
+                                echo "<td><input type='checkbox' name='is_admin' checked='true'</td>";
+                            } else {
+                                echo "<td><input type='checkbox' name='is_admin'</td>";                                
+                            }
+
+                            echo "</tr>";
                         ?>
                     </tbody>
                 </table>

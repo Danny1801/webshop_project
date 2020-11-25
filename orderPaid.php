@@ -21,7 +21,7 @@
         <?php include("header.php"); ?>
             <div class="PageContentBg">
                 <h2 class='thanksLabel'>Bedankt voor uw bestelling!</h2>
-                <h4 class='thanksDescLabel'>U krijgt binnen enkele minuten een bevestigingsmail van uw bestelling.</h4>
+                <h4 class='thanksDescLabel'>U ontvangt binnen enkele minuten geen bevestigingsmail van uw bestelling.</h4>
                 </br>
                 <div class="orderPaidTable table-responsive">
                     <?php
