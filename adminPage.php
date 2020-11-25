@@ -43,7 +43,7 @@
                         <input class="btn btn-secondary adminCategoryBtn" type="button" onclick="location.href='adminPage.php?category=power_supply';" value="Power Supplies">
                         <input class="btn btn-secondary adminCategoryBtn" type="button" onclick="location.href='adminPage.php?category=cpu_cooler';" value="CPU Coolers">
                         <input class="btn btn-secondary adminCategoryBtn" type="button" onclick="location.href='adminPage.php?category=pc_case';" value="PC Cases"><br>
-                        <table class="table-bordered table table-striped table-responsive text-center">
+                        <table class="table-bordered table table-striped table-responsive text-center" id="table">
                             <thead class="table-light">
                                 <th>Id</th>
                                 <th>Foto</th>
@@ -77,9 +77,9 @@
                                 ?>
                             </tbody>
                         </table>    
-                    </div>
+                    </div><br>
                     <div id="users" class="tab-pane fade table-responsive">
-                        <table class="table-bordered table table-striped text-center">
+                        <table class="table-bordered table table-striped text-center" id="table2">
                             <thead class="table-light">
                                 <th>Id</th>
                                 <th>Voornaam</th>
@@ -129,3 +129,9 @@
         <?php include("footer.php") ?>
     </body>
 </html>
+<script>
+    $(document).ready(function(){
+        $('#table').dataTable();
+        $('#table2').dataTable();
+    });
+</script>

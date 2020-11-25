@@ -94,9 +94,9 @@
                         <?php 
                             if(!empty($orders)) {
                                 echo "<div class='table-responsive'>";
-                                echo "<table class='table-bordered table table-striped text-center text-center'>";
+                                echo "<table class='table-bordered table table-striped text-center text-center' id='orders'>";
                                     echo "<thead>";
-                                        echo "<th>Nr.</th>";
+                                        echo "<th>Order</th>";
                                         echo "<th>Prijs</th>";
                                         echo "<th>Code, hoeveelheid</th>";
                                         echo "<th>Besteldatum</th>";
@@ -107,10 +107,24 @@
                             $orderCount = count($orders);
                             $i = $orderCount;
                             foreach($orders as $order) {
+                                $prodCodes =
+                                str_replace(']', '<br>',
+                                    str_replace('[[', '',
+                                    str_replace('"', '',
+                                    str_replace(',', ':',
+                                    str_replace(', [', '.',
+                                    $order->product_codes)))));
+                                $codes = explode('.', $prodCodes);
+                                
                                 echo "<tr>";
                                 echo "<td>" . $i . "</td>";
                                 echo "<td>€" . $order->total_price . "</td>";
-                                echo "<td>" . str_replace(']', '', str_replace('[', '', $order->product_codes)) . "</td>";
+                                echo "<td>";
+                                foreach($codes as $code) {
+                                    $linkCode = explode(':', $code);
+                                    echo "<a href='productPage.php?product=$linkCode[0]'>" . $linkCode[0] . "</a>: $linkCode[1]";
+                                } 
+                                echo "</td>";
                                 echo "<td>" . $order->date . "</td>";
                                 echo "</tr>";
                                 $i--;
@@ -129,3 +143,10 @@
         <?php include("footer.php"); ?>
     </body>
 </html>
+<script>
+    $(document).ready(function(){
+        $('#orders').dataTable( {
+            "lengthMenu": [5, 10, 20]
+        } );
+    });
+</script>
