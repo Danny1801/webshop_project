@@ -94,7 +94,7 @@
                             <tbody>
                                 <?php 
                                     foreach($users as $user) {
-                                        if($user->id != $_SESSION["login"]) {
+                                        if($user->id != $_SESSION["user"]->id) {
                                             echo "<tr>";
                                             echo "<td>" . $user->id . "</td>";
                                             echo "<td>" . $user->firstname . "</td>";
