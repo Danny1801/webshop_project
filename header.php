@@ -55,7 +55,7 @@
                     </div>
                     <div>
                         <img src="images/cart.png" class="winkelwagen" onclick="location.href='payOrder.php'">
-                        <p class="text-success" id="aantal" style="font-weight:bold; font-size:20px;">
+                        <p class="text-success aantal" style="font-weight:bold; font-size:20px;">
                             <?php 
                                 $cartItemAmount = 0;
 

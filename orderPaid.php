@@ -10,6 +10,10 @@
 
     $cartItems = $_SESSION["cart"];
 
+    if(empty($cartItems)) {
+        header("location:index.php");
+    }
+
 ?>
 <html>
     <head>
