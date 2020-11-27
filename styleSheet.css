@@ -116,7 +116,7 @@
         float:left;
     }
     
-    #aantal {
+    .aantal {
         line-height: 52px;
         margin-left:120px;
     }
@@ -154,13 +154,14 @@
     /* index.php */
     .indexFeatured-grid-container {
 		display:grid;
-		grid-template-columns:30% 70%;
+		grid-template-columns:40% 60%;
 		grid-template-rows:auto;
     }
 
     .featuredInfoBg {
         width:85%;
         margin:10%;
+        margin-left:5%;
         grid-column: 2;
         grid-row: 1;
     }
@@ -179,33 +180,36 @@
 
     .featuredName {
         width:100%;
-        margin-bottom:10%;
+        margin-bottom:5%;
         font-size:1.5vw;
         text-align: center;
         color:gray;
     }
 
     .featuredImage {
-        width:100%;
-        margin:15%;
+        max-width:100%;
+        height:70%;
+        margin:auto;
         border-radius: 5px;
         grid-column: 1;
         grid-row: 1 / span 3;
     }
 
     .featuredDescription {
-        width:80%;
-        margin-left:10%;
-        margin-bottom:10%;
-        font-size:1vw;
+        width:30%;
+        margin-left:1.5%;
+        margin-top:0%;
+        font-size:0.8vw;
         text-align: center;
         line-height:120%;
         color:darkslategray;
+        position: absolute;
     }
 
     .featuredButton {
         width:40%;
         margin-left:30%;
+        margin-top:20%;
         height:15%; 
     }
 

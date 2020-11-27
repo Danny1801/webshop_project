@@ -96,7 +96,7 @@
                                 echo "<div class='table-responsive'>";
                                 echo "<table class='table-bordered table table-striped text-center text-center' id='orders'>";
                                     echo "<thead>";
-                                        echo "<th>Order</th>";
+                                        echo "<th>Order Nr.</th>";
                                         echo "<th>Prijs</th>";
                                         echo "<th>Code, hoeveelheid</th>";
                                         echo "<th>Besteldatum</th>";
