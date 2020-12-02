@@ -14,7 +14,7 @@
 
     $elements = count($specifications);
 
-    $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id WHERE product_code<>? ORDER BY RAND() LIMIT 4");
+    $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id WHERE product_code<>? AND products.stock > 0  ORDER BY RAND() LIMIT 4");
     $stmt->bindValue(1, $product->product_code);
     $stmt->execute();
 
