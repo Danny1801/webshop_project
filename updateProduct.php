@@ -14,11 +14,30 @@
 	$categories = $stmt->fetchAll(5);
 
     if($_POST) {
+        $newSpecs = array();
+        
+        for($i = 1; $i <= count($_POST["specifications"]); $i++) {
+            $val1 = $_POST["specifications"][$i];
+            
+            if(!empty($_POST["specifications"][$i]) && $_POST["specifications"][$i] != null) {
+                $i++;
+                $val2 = $_POST["specifications"][$i];
+                
+                if(!empty($_POST["specifications"][$i]) && $_POST["specifications"][$i] != null) {
+                    array_push($newSpecs, array($val1 => $val2));
+                }
+            }
+        }
+
+        $jsonSpecs = json_encode($newSpecs);
+        $jsonSpecs = "{" . str_replace('[', '', str_replace(']', '', str_replace('{', '', str_replace('}', '', $jsonSpecs)))) . "}";
+        var_dump($jsonSpecs);
+        
         $stmt = $con->prepare("UPDATE products SET product_code=?, `name`=?, `description`=?, specifications=?, price=?, stock=?, category_id=? WHERE product_code=?");
 		$stmt->bindValue(1, htmlspecialchars($_POST["product_code"]));
 		$stmt->bindValue(2, htmlspecialchars($_POST["name"]));
 		$stmt->bindValue(3, htmlspecialchars($_POST["description"]));
-		$stmt->bindValue(4, strip_tags($_POST["specifications"]));
+		$stmt->bindValue(4, strip_tags($jsonSpecs));
 		$stmt->bindValue(5, htmlspecialchars($_POST["price"]));
 		$stmt->bindValue(6, $_POST["stock"]);
 		$stmt->bindValue(7, $_POST["category"]);
@@ -43,6 +62,7 @@
             <form method="POST">
                 <div style="color:red;">Let op! Product code is de naam van de foto</div><br>
                 <table class="table table-striped">
+                    <thead class="table table-light"><th>Algemeen</th><th></th></thead>
                     <tbody>
                         <tr>
                             <td>Product code</td>
@@ -56,10 +76,34 @@
                             <td>Description</td>
                             <td><textarea cols="80" rows="5" name="description"><?php echo $product->description ?></textarea></td>
                         </tr>
+                        <thead class="table table-light"><th>Specificaties<button type="button" class="ml-5 btn-success" onclick="addElement()">Rij Toevoegen</button></th><th></th></thead>
+                        <tbody id="addRowId">
                         <tr>
-                            <td>Specifications</td>
-                            <td><textarea cols="80" rows="2" name="specifications"><?php echo $product->specifications ?></textarea></td>
+                            <td>Naam</td>
+                            <td>Waarde</td>
+                            <?php 
+
+                                $specificationsArray = str_replace(' ', '', str_replace('"', '', str_replace('{', '', str_replace('}', '', $product->specifications))));
+                                $specifications = explode(',', $specificationsArray);
+                                $specCount = 0;
+                                $element = 1;
+
+                                foreach($specifications as $specification) {
+                                    $spec = explode(':', $specification);
+                                    $specCount++;
+                                    echo "<tr id='row$element'>";
+                                    echo "<td><input type='text' name='specifications[$specCount]' maxlength='60' size='30' value='$spec[0]'</td>";
+                                    $specCount++;
+                                    echo "<td><input type='text' name='specifications[$specCount]' maxlength='60' size='30' value='$spec[1]'</td>";
+                                    echo "<button type='button' class='ml-3 btn-danger' onclick=removeElement('row" . $element . "')>Verwijderen</button>";
+                                    echo "</tr>";
+                                    $element++;
+                                }
+
+                            ?>
                         </tr>
+                        </tbody>
+                        <thead class="table table-light"><th>Overig</th><th></th></thead>
                         <tr>
                             <td>Price</td>
                             <td><input type="number" name="price" value="<?php echo $product->price ?>"></td>
@@ -92,3 +136,16 @@
         <?php include("footer.php") ?>
     </body>
 </html>
+<script>
+
+    function addElement() {
+        var elementCount = "<?php Print($element); ?>";
+        document.getElementById("addRowId").innerHTML += "<tr id='row" + elementCount + "'><td><input type='text' name='specifications[$specCount]' maxlength='60' size='30' value=''</td><td><input type='text' name='specifications[$specCount]' maxlength='60' size='30' value=''</td><button type='button' class='ml-3 btn-danger' onclick=removeElement('row" + elementCount + "')>Verwijderen</button></tr>";
+    }
+
+    function removeElement(elementId) {
+        var element = document.getElementById(elementId);
+        element.parentNode.removeChild(element);
+    }
+
+</script>
