@@ -4,8 +4,8 @@
         session_start();
     }
 
-    require_once("checkLogin.php");
-    require_once("database.php");
+    require_once("../checkLogin.php");
+    require_once("../database.php");
 
     $stmt = $con->prepare("SELECT * FROM orders WHERE `user_id`=? ORDER BY `date` DESC");
     $stmt->bindValue(1, $_SESSION["user"]->id);
@@ -48,11 +48,11 @@
     <head>
         <title>Mijn account - Danio Components</title>
         <link rel="shortcut icon" href="images/favicon.ico">
-        <link rel="stylesheet" href="styleSheet.css">
+        <link rel="stylesheet" href="../styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <?php include("header.php"); ?>
+        <?php include("header2.php"); ?>
             <div class="PageContentBg">
                 <h4>Welkom op je accountpagina, <?php echo $_SESSION["user"]->firstname . " " . $_SESSION["user"]->lastname ?>! Hier vind je jouw accountgegevens en recente bestellingen.</h4><br>
                 <div class="accountPage-grid-container">
@@ -122,7 +122,7 @@
                                 echo "<td>";
                                 foreach($codes as $code) {
                                     $linkCode = explode(':', $code);
-                                    echo "<a href='productPage.php?product=$linkCode[0]'>" . $linkCode[0] . "</a>: $linkCode[1]";
+                                    echo "<a href='../productPage.php?product=$linkCode[0]'>" . $linkCode[0] . "</a>: $linkCode[1]";
                                 } 
                                 echo "</td>";
                                 echo "<td>" . $order->date . "</td>";
@@ -140,7 +140,7 @@
                     </div> 
                 </div> 
             </div> 
-        <?php include("footer.php"); ?>
+        <?php include("footer2.php"); ?>
     </body>
 </html>
 <script>

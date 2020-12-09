@@ -57,7 +57,7 @@
                         <input class="btn btn-success" type="submit" value="Inloggen">
                     </form>
                     <div id="formFooter">
-                        <h5><a class="underlineHover" href="createAccount.php">Nieuw? Registreer nu!</a></h5>
+                        <h5><a class="underlineHover" href="Private/createAccount.php">Nieuw? Registreer nu!</a></h5>
                     </div>
                 </div>
             </div>    

@@ -1,6 +1,6 @@
 <?php
 
-	require_once("database.php");
+	require_once("../database.php");
 	
 	$stmt = $con->prepare("SELECT * FROM categories");
 	$stmt->execute();
@@ -30,12 +30,12 @@
 <html>
     <head>
         <title>Product Toevoegen - Danio Components</title>
-        <link rel="stylesheet" href="styleSheet.css">
+        <link rel="stylesheet" href="../styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="shortcut icon" href="../favicon.ico">
     </head>
 	<body>
-        <?php include("header.php") ?>
+        <?php include("header2.php") ?>
             <div class="PageContentBg">
                 <form method="POST">
                     <div style="color:red;">Let op! Product code is de naam van de foto</div><br>
@@ -80,9 +80,9 @@
                             </tr>
                         </tbody>
                     </table>
-                    <input class="btn btn-success" type="submit" onclick="location.href='createProduct.php';" value="Product Aanmaken">
+                    <input class="btn btn-success" type="submit" onclick="location.href='../createProduct.php';" value="Product Aanmaken">
                 </form>
             </div>
-        <?php include("footer.php") ?>
+        <?php include("footer2.php") ?>
 	</body>
 </html>
