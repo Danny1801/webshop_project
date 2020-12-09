@@ -1,7 +1,7 @@
 <?php
 
-    require_once("database.php");
-    require_once("checkAdmin.php");
+    require_once("../database.php");
+    require_once("../checkAdmin.php");
 
     if(isset($_GET["category"])) {
         $stmt = $con->prepare("SELECT products.id, products.product_code, products.name, products.description, products.specifications, products.price, products.stock, categories.name AS category FROM products LEFT JOIN categories ON categories.id = products.category_id WHERE categories.name=? ORDER BY products.id ASC");
@@ -22,10 +22,10 @@
 <html>
     <head>
         <title>Admin - Danio Components</title>
-        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="shortcut icon" href="imagesfavicon.ico">
     </head>
     <body>
-        <?php include("header.php") ?>
+        <?php include("header2.php") ?>
             <div class="PageContentBg">
                 <ul class="nav nav-tabs">
                     <li class="active"><a class="nav-link active" data-toggle="tab" href="#products">Products</a></li>
@@ -62,9 +62,9 @@
                                     foreach($products as $product) {
                                         echo "<tr>";
                                         echo "<td>" . $product->id . "</td>";
-                                        echo "<td><img class='tableProductImage' src='products/$product->category/$product->product_code.jpg' onerror=\"this.onerror=null; this.src='images/not_found.jpg'\"></td>";
+                                        echo "<td><img class='tableProductImage' src='../products/$product->category/$product->product_code.jpg' onerror=\"this.onerror=null; this.src='images/not_found.jpg'\"></td>";
                                         echo "<td>" . $product->product_code . "</td>";
-                                        echo "<td><a href='productPage.php?product=$product->product_code'>$product->name</a></td>";
+                                        echo "<td><a href='../productPage.php?product=$product->product_code'>$product->name</a></td>";
                                         echo "<td>" . $product->description . "</td>";
                                         echo "<td>" . $product->specifications . "</td>";
                                         echo "<td>" . $product->price . "</td>";
@@ -104,7 +104,7 @@
                                             echo "<td>" . $user->phone . "</td>";
                                             echo "<td>" . ($user->is_admin ? 'JA' : 'NEE') . "</td>";
                                             echo "<td><a href='updateUser.php?user_id=" . $user->id . "'>Wijzig</a></td>";
-                                            echo "<td><a style='color:red;' href='deleteUser.php?user_id=" . $user->id . "'>Verwijder</a></td>";
+                                            echo "<td><a style='color:red;' href='Private/deleteUser.php?user_id=" . $user->id . "'>Verwijder</a></td>";
                                             echo "</tr>";
                                         } else {
                                             echo "<tr>";
@@ -126,7 +126,7 @@
                     </div>
                 </div>
             </div>
-        <?php include("footer.php") ?>
+        <?php include("footer2.php") ?>
     </body>
 </html>
 <script>
