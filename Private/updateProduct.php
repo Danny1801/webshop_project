@@ -1,6 +1,6 @@
 <?php
 
-    require_once("../database.php");
+    require_once("database.php");
             
     $stmt = $con->prepare("SELECT * FROM products WHERE product_code=?");
     $stmt->bindValue(1, $_GET["product"]);
@@ -52,12 +52,12 @@
 <html>
     <head>
         <title>Edit <?php echo $product->name?> - Danio Components</title>
-        <link rel="stylesheet" href="../styleSheet.css">
+        <link rel="stylesheet" href="styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="images/favicon.ico">
     </head>
     <body>
-        <?php include("header2.php") ?>
+        <?php include("header.php") ?>
         <div class="PageContentBg">
             <form method="POST">
                 <div style="color:red;">Let op! Product code is de naam van de foto</div><br>
@@ -133,7 +133,7 @@
                 <input class=" btn btn-success" type="submit" value="Wijzigingen Opslaan">
             </form>
         </div>
-        <?php include("footer2.php") ?>
+        <?php include("footer.php") ?>
     </body>
 </html>
 <script>
