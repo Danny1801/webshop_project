@@ -4,7 +4,7 @@
         session_start();
     }
 
-    require_once("database.php");
+    require_once("../database.php");
 
     if($_POST){
         if(isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["address"]) && isset($_POST["email"]) && !empty($_POST["phone"]) && isset($_POST["password"])) {
@@ -32,7 +32,7 @@
             $_SESSION["user"] = $result;
             $_SESSION["login"] = 1;
 
-            header("location:index.php");
+            header("location:../index.php");
         } else {
             echo "<script type='text/javascript'>alert('Alle velden moeten ingevuld zijn!');</script>";
         }    
@@ -42,12 +42,12 @@
 <html>
     <head>
         <title>Account aanmaken - Danio Components</title>
-        <link rel="stylesheet" href="styleSheet.css">
+        <link rel="stylesheet" href="../styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="images/favicon.ico">
     </head>
     <body>
-        <?php include("header.php"); ?>
+        <?php include("header2.php"); ?>
             <div class="PageContentBg">
                 <div id="formContent">
                     <form method="POST">
@@ -59,11 +59,11 @@
                         <input type="number" id="phone" name="phone" maxlength="11" placeholder="Telefoon"></br></br>
                         <input type="password" id="password" name="password" placeholder="Wachtwoord"></br></br>
                         <input type="submit" class="btn btn-success" value="Aanmaken"></br></br>
-                        <h5><a href="login.php" class="">Terug naar inloggen</a></h5>
+                        <h5><a href="../login.php" class="">Terug naar inloggen</a></h5>
                     </form>
                 </div>
             </div>
-        <?php include("footer.php"); ?>
+        <?php include("footer2.php"); ?>
     </body>
 </html>
 

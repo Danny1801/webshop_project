@@ -10,7 +10,7 @@
         }
     }
 
-    require_once("database.php");
+    require_once("../database.php");
 
     $stmt = $con->prepare("SELECT * FROM categories");
     $stmt->execute();
@@ -42,19 +42,19 @@
     <body>
         <div class="header">
             <div class="headerBg">
-                <img src="images/logo.png" class="logo" alt="Cinque Terre" onclick="location.href='./index.php'">
+                <img src="images/logo.png" class="logo" alt="Cinque Terre" onclick="location.href='../index.php'">
                 <div class="cartLoginContainer">
                     <div>
                         <?php 
                             if($_SESSION["login"]) {
-                                echo "<a class='login' href='session_destroy.php'>Logout</a>";
+                                echo "<a class='login' href='../session_destroy.php'>Logout</a>";
                             } else {
-                               echo "<a class='login'  href='login.php'>Login</a>"; 
+                               echo "<a class='login'  href='../login.php'>Login</a>"; 
                             }
                         ?>
                     </div>
                     <div>
-                        <img src="images/cart.png" class="winkelwagen" onclick="location.href='payOrder.php'">
+                        <img src="images/cart.png" class="winkelwagen" onclick="location.href='../payOrder.php'">
                         <p class="text-success aantal" style="font-weight:bold; font-size:20px;">
                             <?php 
                                 $cartItemAmount = 0;
@@ -76,7 +76,7 @@
                 <li class="nav-item">
                 </li>
                 <li class="nav-item">
-                    <button onclick="window.location.href='./index.php'" class="mr-3 btn btn-secondary">Home</button>
+                    <button onclick="window.location.href='../index.php'" class="mr-3 btn btn-secondary">Home</button>
                 </li>
                 <div class="dropdown">
                     <button class="mr-3 btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" data-target=".dropdown-menu" aria-haspopup="true" aria-expanded="false">Componenten</button>
@@ -84,31 +84,31 @@
                         <?php
                         
                             foreach($headCategories as $headCategory) {
-                                echo "<a class='dropdown-item' href='./categoryPage.php?category=$headCategory->name'>$headCategory->display_name</a>";
+                                echo "<a class='dropdown-item' href='../categoryPage.php?category=$headCategory->name'>$headCategory->display_name</a>";
                             }
                         
                         ?>
                     </div>
                 </div>
                 <li class="nav-item">
-                    <button onclick="window.location.href='contactPage.php'" class="btn btn-secondary mr-3">Over Ons</button>
+                    <button onclick="window.location.href='../contactPage.php'" class="btn btn-secondary mr-3">Over Ons</button>
                 </li>
                 <?php
 
                     if($_SESSION["login"]) {
                         echo "<li class='nav-item'>";
-                            echo "<button onclick='window.location.href=`Private/accountPage.php`' class='mr-3 btn btn-success'>Mijn Account</button>";
+                            echo "<button onclick='window.location.href=`./accountPage.php`' class='mr-3 btn btn-success'>Mijn Account</button>";
                         echo "</li>";
                     }
 
                     if(isset($_SESSION["user"]->is_admin) && $_SESSION["user"]->is_admin == 1){
                         echo "<li class='nav-item'>";
-                            echo "<a class='btn btn-warning' type='button' href='Private/adminPage.php'>Admin Page</a>";
+                            echo "<a class='btn btn-warning' type='button' href='adminPage.php'>Admin Page</a>";
                         echo "</li>";
                     }
                 ?>
                 </ul>
-                <form class="form-inline searchBar mx-auto" method="GET" action="index.php">
+                <form class="form-inline searchBar mx-auto" method="GET" action="../index.php">
                     <input class="form-control mr-sm-2" type="search" placeholder="Zoek naar een product" name="searchTag">
                     <input class="btn btn-success my-2 my-sm-0 text-light" value="Zoeken" type="submit">
                 </form>
