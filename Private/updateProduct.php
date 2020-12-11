@@ -15,16 +15,20 @@
 
     if($_POST) {
         $newSpecs = array();
+
+        $_POST["specifications"] = array_combine(range(1, count($_POST["specifications"])), array_values($_POST["specifications"]));
         
         for($i = 1; $i <= count($_POST["specifications"]); $i++) {
-            $val1 = $_POST["specifications"][$i];
+            if(isset($_POST["specifications"][$i])) {
+                $val1 = $_POST["specifications"][$i];
             
-            if(!empty($_POST["specifications"][$i]) && $_POST["specifications"][$i] != null) {
-                $i++;
-                $val2 = $_POST["specifications"][$i];
-                
                 if(!empty($_POST["specifications"][$i]) && $_POST["specifications"][$i] != null) {
-                    array_push($newSpecs, array($val1 => $val2));
+                    $i++;
+                    $val2 = $_POST["specifications"][$i];
+                    
+                    if(!empty($_POST["specifications"][$i]) && $_POST["specifications"][$i] != null) {
+                        array_push($newSpecs, array($val1 => $val2));
+                    }
                 }
             }
         }
@@ -45,7 +49,7 @@
 
         $stmt->execute();
         
-        header("location:adminPage.php");
+        header("location:updateProduct.php?product=$product->product_code");
     }
 
 ?>
@@ -83,8 +87,8 @@
                             <td>Waarde</td>
                             <?php 
 
-                                $specificationsArray = str_replace(' ', '', str_replace('"', '', str_replace('{', '', str_replace('}', '', $product->specifications))));
-                                $specifications = explode(',', $specificationsArray);
+                                $specificationsArray = str_replace('"', '', str_replace('{', '', str_replace('}', '', str_replace('",', '".', $product->specifications))));
+                                $specifications = explode('.', $specificationsArray);
                                 $specCount = 0;
                                 $element = 1;
 
@@ -92,9 +96,9 @@
                                     $spec = explode(':', $specification);
                                     $specCount++;
                                     echo "<tr id='row$element'>";
-                                    echo "<td><input type='text' name='specifications[$specCount]' maxlength='60' size='30' value='$spec[0]'</td>";
+                                    echo "<td><input type='text' name='specifications[$specCount]' maxlength='60' size='30' value='" . trim($spec[0]) . "'</td>";
                                     $specCount++;
-                                    echo "<td><input type='text' name='specifications[$specCount]' maxlength='60' size='30' value='$spec[1]'</td>";
+                                    echo "<td><input type='text' name='specifications[$specCount]' maxlength='60' size='30' value='" . trim($spec[1]) . "'</td>";
                                     echo "<button type='button' class='ml-3 btn-danger' onclick=removeElement('row" . $element . "')>Verwijderen</button>";
                                     echo "</tr>";
                                     $element++;
@@ -139,8 +143,7 @@
 <script>
 
     function addElement() {
-        var elementCount = "<?php Print($element); ?>";
-        document.getElementById("addRowId").innerHTML += "<tr id='row" + elementCount + "'><td><input type='text' name='specifications[$specCount]' maxlength='60' size='30' value=''</td><td><input type='text' name='specifications[$specCount]' maxlength='60' size='30' value=''</td><button type='button' class='ml-3 btn-danger' onclick=removeElement('row" + elementCount + "')>Verwijderen</button></tr>";
+        document.getElementById("addRowId").innerHTML += "<tr id='row<?php echo $element ?>'><td><input type='text' name='specifications[<?php $specCount++; echo $specCount ?>]' maxlength='60' size='30' value=''</td><td><input type='text' name='specifications[<?php $specCount++; echo $specCount ?>]' maxlength='60' size='30' value=''</td><button type='button' class='ml-3 btn-danger' onclick=removeElement('row<?php echo $element ?>')>Verwijderen</button></tr>";
     }
 
     function removeElement(elementId) {
