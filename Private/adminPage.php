@@ -1,6 +1,6 @@
 <?php
 
-    require_once("../database.php");
+    require_once("database.php");
     require_once("../checkAdmin.php");
 
     if(isset($_GET["category"])) {

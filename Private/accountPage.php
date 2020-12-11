@@ -5,7 +5,7 @@
     }
 
     require_once("../checkLogin.php");
-    require_once("../database.php");
+    require_once("database.php");
 
     $stmt = $con->prepare("SELECT * FROM orders WHERE `user_id`=? ORDER BY `date` DESC");
     $stmt->bindValue(1, $_SESSION["user"]->id);

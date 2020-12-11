@@ -1,6 +1,6 @@
 <?php
 
-    require_once("database.php");
+    require_once("../database.php");
 
     if(isset($_GET["category"])) {
         $stmt = $con->prepare("SELECT * FROM categories WHERE categories.name=?");

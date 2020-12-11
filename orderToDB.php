@@ -4,7 +4,7 @@
         session_start();
     }
     
-    require_once("database.php");
+    require_once("../database.php");
 
     if($_SESSION["login"] == 1) {
         $login = $_SESSION["user"]->id;

@@ -4,7 +4,7 @@
         session_start();
     }
 
-    require_once("../database.php");
+    require_once("database.php");
 
     if($_POST){
         if(isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["address"]) && isset($_POST["email"]) && !empty($_POST["phone"]) && isset($_POST["password"])) {
