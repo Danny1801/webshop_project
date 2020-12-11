@@ -1,6 +1,6 @@
 <?php
 
-    require_once("database.php");
+    require_once("../database.php");
             
     $stmt = $con->prepare("SELECT * FROM users WHERE id=?");
     $stmt->bindValue(1, $_GET["user_id"]);

@@ -1,6 +1,6 @@
 <?php
 
-    require_once("database.php");
+    require_once("../database.php");
             
     $stmt = $con->prepare("SELECT * FROM products WHERE product_code=?");
     $stmt->bindValue(1, $_GET["product"]);
