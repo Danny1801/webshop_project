@@ -43,12 +43,12 @@
             $continue = true;
         } else {
             $product = $cartItems[$i][0];
-            header("location:../payOrder.php?stockErr=$product");
+            header("location:../Public/payOrder.php?stockErr=$product");
         }
     }
 
     if($continue) {
-        header("location:../orderPaid.php");
+        header("location:../Public/orderPaid.php");
     }
 
 ?>
