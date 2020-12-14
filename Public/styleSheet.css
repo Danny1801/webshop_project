@@ -1,0 +1,475 @@
+/* PC */
+@media only screen {
+    /* algemeen */
+    body {
+        background-image: linear-gradient(white, white, rgb(209, 209, 209));
+        background-image: url("images/background.png");
+        background-repeat: repeat;   
+        background-size: 1000px 1000px;
+    }
+
+    div {
+        user-select: text;
+    }
+
+    .headerBg {
+        background-image: linear-gradient(white, whitesmoke, whitesmoke, whitesmoke, whitesmoke, whitesmoke, whitesmoke, lightgrey);
+        height:120px;
+    }
+
+    .footerA {
+        color:rgb(255, 208, 52);
+    }
+
+    .menubar {
+        height:60px;
+        clear:both;
+    }
+
+    .TopPageContentBg {
+        background-color: whitesmoke;
+        margin-left:15%;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        width:70%;
+        padding-left:3%;
+        padding-top:1%;
+        border:solid silver 1px;
+        border-radius: 5px;
+    }
+    
+    .PageContentBg {
+        background-color: whitesmoke;
+        margin-left:15%;
+        margin-top: 20px;
+        margin-bottom: 100px;
+        width:70%;
+        padding:3%;
+        border:solid silver 1px;
+        border-radius: 5px;
+    }
+
+    .product {
+        background-image: linear-gradient(white, white, white, white);
+        height:100%;
+        width:100%;
+        border:solid silver 1px;
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .product:hover {
+        background-image: linear-gradient(white, white, whitesmoke, whitesmoke);
+    }
+
+    .productName {
+        width:100%;
+        font-size: 1.2vw;
+        height: 2em;
+        line-height: 2em;
+        overflow: hidden;
+        text-align: center;
+        color:gray;
+    }
+
+    .productImage {
+        max-width:85%;
+        display:block;
+        height:12vw;
+        margin-left:auto;
+        margin-right:auto;
+        border-radius: 5px;
+    }
+
+    .productPrice {
+        width:50%;
+        font-size: 1.6vw;
+        text-align: right;
+        line-height: 150%;
+        float:left;
+    }
+
+    .productStock {
+        width:50%;
+        font-size: 0.8vw;
+        text-align: center;
+        line-height: 300%;
+        float:left;
+        font-weight: bold;
+    }
+
+    .productButton {
+        width:60%;
+        margin-left: 20%;
+        height:10%;
+        margin-bottom:5%;
+    }
+
+    /* header.php */
+    .cartLoginContainer {
+        margin-left:80%;
+        margin-top:35px;
+        width:200px;
+        position: absolute;
+        float:left;
+    }
+    
+    .aantal {
+        line-height: 52px;
+        margin-left:120px;
+    }
+
+    .login {
+        margin-top:10px;
+        font-size: larger;
+        color: rgb(56, 56, 56);
+        float:left;
+        font-weight: bold;
+    }
+    
+    .winkelwagen {
+        width: 50px;
+        margin-bottom:10px;
+        margin-left:20px;
+        float:left;
+        cursor: pointer;
+    }
+    
+    .logo {
+        width: 300px;
+        margin-top: 20px;
+        margin-left:15%;
+        margin-bottom:20px;
+        float:left;
+        cursor: pointer;
+    }
+
+    .searchBar {
+        margin-left:30%;
+        margin-top:15px;
+    }
+    
+    /* index.php */
+    .indexFeatured-grid-container {
+		display:grid;
+		grid-template-columns:40% 60%;
+		grid-template-rows:auto;
+    }
+
+    .featuredInfoBg {
+        width:85%;
+        margin:10%;
+        margin-left:5%;
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .featured {
+        background-image: linear-gradient(white, white, white, white);
+        width:100%;
+        border:solid silver 1px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .featured:hover {
+        background-image: linear-gradient(white, white, whitesmoke, whitesmoke);
+    }
+
+    .featuredName {
+        width:100%;
+        margin-bottom:5%;
+        font-size:1.5vw;
+        text-align: center;
+        color:gray;
+    }
+
+    .featuredImage {
+        max-width:100%;
+        height:70%;
+        margin:auto;
+        border-radius: 5px;
+        grid-column: 1;
+        grid-row: 1 / span 3;
+    }
+
+    .featuredDescription {
+        width:30%;
+        margin-left:1.5%;
+        margin-top:0%;
+        font-size:0.8vw;
+        text-align: center;
+        line-height:120%;
+        color:darkslategray;
+        position: absolute;
+    }
+
+    .featuredButton {
+        width:40%;
+        margin-left:30%;
+        margin-top:20%;
+        height:15%; 
+    }
+
+    .categories-grid-container {
+        display:grid;
+		grid-template-columns:22% 22% 22% 22%;
+        grid-template-rows:auto;
+        column-gap:4%;
+        row-gap:20px;
+        margin-top:20px;
+    }
+    
+    .category {
+        background-image: linear-gradient(white, white, white, white);
+        height:100%;
+        width:100%;
+        margin-right:5%;
+        margin-top:0px;
+        border:solid silver 1px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .category:hover {
+        background-image: linear-gradient(white, white, whitesmoke, whitesmoke);
+    }
+
+    .categoryName {
+        width:100%;
+        font-size: 1.2vw;
+        text-align: center;
+        color:gray;
+    }
+
+    .categoryImage {
+        width:85%;
+        margin-left:7.5%;
+        border-radius: 5px;
+    }
+
+    .categoryDescription {
+        width:100%;
+        font-size: 0.7vw;
+        text-align: center;
+        line-height: 200%;
+        color:darkslategray;
+    }
+
+    .categoryButton {
+        width:60%;
+        margin-left:20%;
+        height:10%;
+        margin-bottom:5%;
+    }
+
+    /* categoryPage.php */
+    .product-grid-container {
+        display:grid;
+        grid-template-columns:22% 22% 22% 22%;
+        grid-template-rows:auto;
+        column-gap:4%;
+        row-gap:20px;
+    }
+
+    .categoryPageName {
+        font-size: 2vw;
+        line-height: 90%;
+        color:darkslategray;
+    }
+
+    .categoryPageDesc {
+        font-size: 1.2vw;
+        color:darkslategray;
+    }
+
+    .noResults {
+        font-size: 1.2vw;
+        color:darkslategray;
+        text-align:center;
+        color:darkred;
+    }
+
+    .toHomeBtn {
+        font-size:1vw;
+        width:20%;
+        margin-left:40%;
+    }
+
+    /* productPage.php */
+    .productPage-grid-container {
+		display:grid;
+		grid-template-columns:50% 50%;
+		grid-template-rows:auto auto;
+    }
+
+    .productPageImage {
+        max-width:85%;
+        display:block;
+        height:25vw;
+        margin-left:auto;
+        margin-right:auto;
+        border:solid silver 1px;
+        border-radius: 5px;
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .productInfoBg {
+        width:90%;
+        margin-left:10%;
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .productPageName {
+        width:100%;
+        font-size:2vw;
+        line-height:110%;
+        text-align: center;
+        color:gray;
+    }
+
+    .productPagePrice {
+        width:50%;
+        font-size:2vw;
+        text-align: center;
+        line-height: 100%;
+        color:green;
+        float:left;
+        margin-top:5%;
+    }
+
+    .productPageStock {
+        width:50%;
+        font-size:1vw;
+        text-align: center;
+        line-height: 100%;
+        color:green;
+        float:left;
+        margin-top:7%;
+        font-weight: bold;
+    }
+
+    .productPageButton {
+        width:60%;
+        max-height:50px;
+        height:10%;
+        margin-left: 20%;
+        margin-top:5%;
+        line-height:150%; 
+        font-size:1.2vw;
+    }
+
+    .productPageDescription {
+        width:100%;
+        font-size:1vw;
+        text-align: center;
+        line-height: 120%;
+        color:gray;
+        float:left;
+        margin-top:5%;
+        margin-bottom: 5%;
+    }
+
+    .specificationsTable {
+        margin-top:10%;
+        margin-bottom:20%;
+    }
+
+    .relevantProducts {
+        width:100%; 
+        height:100%;
+        grid-column: 1 / span 2;
+        grid-row: 2;
+    }
+    
+    .alternativeText {
+        width:100%;
+        font-size:1.5vw;
+        line-height: 120%;
+        color:darkslategray;
+    }
+
+    /* adminPage.php */
+    .tableProductImage {
+        width:75px;
+    }
+
+    .adminCategoryBtn {
+        margin-bottom:10px;
+    }
+
+    /* payOrder.php */
+    .payOrderButton {
+        width:60%;
+        margin-left:20%;
+        line-height:150%; 
+        font-size:1.2vw;
+        color:white; 
+        width:20%; 
+        margin-left:40%;
+    }
+
+    .totalPrice {
+        text-align:center;
+        color:green;
+        font-size:1.5vw; 
+    }
+    
+    /* orderPaid.php */
+    .thanksLabel {
+        text-align: center;
+        font-size:1.5vw; 
+    }
+
+    .thanksDescLabel {
+        text-align: center;
+        font-size:1vw; 
+    }
+
+    .orderPaidTable {
+        margin-left: 20%;
+        width:60%;
+    }
+
+    /* contactPage.php */
+    .googleMapsImage {
+        border-radius:3vw;
+        border:grey 2px solid;
+        width:100%;
+    }
+
+    .contactPageDiv {
+        width:80%;
+        margin-left:10%;
+    }
+
+    .contactHeader {
+        text-align: center;
+        font-size:2vw; 
+    }
+
+    .contactSmallHeader {
+        text-align: center;
+        font-size:1.3vw; 
+    }
+
+    .contactDesc {
+        text-align: center;
+        font-size:1vw; 
+    }
+
+    /* accountPage.php */
+    .accountPage-grid-container {
+		display:grid;
+		grid-template-columns:50% 50%;
+		grid-template-rows:auto auto;
+    }
+
+    .editAccountTable {
+        width:90%;
+    }
+}
