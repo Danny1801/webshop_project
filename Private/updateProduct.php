@@ -86,8 +86,8 @@
                             <td>Waarde</td>
                             <?php 
 
-                                $specificationsArray = str_replace('"', '', str_replace('{', '', str_replace('}', '', str_replace('",', '".', $product->specifications))));
-                                $specifications = explode('.', $specificationsArray);
+                                $specificationsArray = str_replace('"', '', str_replace('{', '', str_replace('}', '', str_replace('",', '"^', $product->specifications))));
+                                $specifications = explode('^', $specificationsArray);
                                 $specCount = 0;
                                 $element = 1;
 
