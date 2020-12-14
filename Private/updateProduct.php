@@ -56,9 +56,8 @@
 <html>
     <head>
         <title>Edit <?php echo $product->name?> - Danio Components</title>
-        <link rel="stylesheet" href="styleSheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="shortcut icon" href="../images/favicon.ico">
     </head>
     <body>
         <?php include("header2.php") ?>
@@ -87,8 +86,8 @@
                             <td>Waarde</td>
                             <?php 
 
-                                $specificationsArray = str_replace('"', '', str_replace('{', '', str_replace('}', '', str_replace('",', '".', $product->specifications))));
-                                $specifications = explode('.', $specificationsArray);
+                                $specificationsArray = str_replace('"', '', str_replace('{', '', str_replace('}', '', str_replace('",', '"^', $product->specifications))));
+                                $specifications = explode('^', $specificationsArray);
                                 $specCount = 0;
                                 $element = 1;
 

@@ -22,7 +22,7 @@
 <html>
     <head>
         <title>Admin - Danio Components</title>
-        <link rel="shortcut icon" href="imagesfavicon.ico">
+        <link rel="shortcut icon" href="../images/favicon.ico">
     </head>
     <body>
         <?php include("header2.php") ?>
